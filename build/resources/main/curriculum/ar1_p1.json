@@ -1,0 +1,2369 @@
+{
+  "subject": "اللغة العربية",
+  "subjectCode": "ar",
+  "gradeLevel": 1,
+  "semester": 1,
+  "lessons": [
+    {
+      "title": "حرف الراء",
+      "orderIndex": 1,
+      "content": "حرف الراء هو أول حرف نتعلمه. شكله مثل الذيل المنحني. كلمات: رمان، رسم، ريشة، رجل، رامي.",
+      "objectives": "التعرف إلى حرف الراء اسماً وشكلاً وصوتاً، قراءة وكتابة حرف الراء",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف الراء؟",
+          "correctAnswer": "رمان",
+          "options": [
+            "رمان",
+            "سمكة",
+            "قمر",
+            "نجمة"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة لا يأتي فيها حرف الراء؟",
+          "correctAnswer": "ليمون",
+          "options": [
+            "رسم",
+            "قمر",
+            "ليمون",
+            "رمل"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف الراء ليس له نقاط",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الراء",
+          "correctAnswer": "ر",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب الحرف الذي يأتي قبل الراء في كلمة (قمر)",
+          "correctAnswer": "م",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (رمان) يأتي حرف ___ في البداية",
+          "correctAnswer": "الراء",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (رمان)",
+          "correctAnswer": "ر، م، ا، ن",
+          "options": [
+            "م",
+            "ا",
+            "ر",
+            "ن"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "رمان",
+          "correctAnswer": "رمان",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "ريشة",
+          "correctAnswer": "ريشة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "رامي",
+          "correctAnswer": "رامي",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ر",
+          "correctAnswer": "ر",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "را",
+          "correctAnswer": "را",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف الدال",
+      "orderIndex": 2,
+      "content": "حرف الدال شكله مثل الظهر المنحني. كلمات: دجاجة، دب، دار، ديك، دانا.",
+      "objectives": "التعرف إلى حرف الدال اسماً وشكلاً وصوتاً، قراءة وكتابة حرف الدال",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف الدال؟",
+          "correctAnswer": "دجاجة",
+          "options": [
+            "دجاجة",
+            "بيت",
+            "سماء",
+            "قلم"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "كلمة \"دب\" تبدأ بحرف الدال",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الدال",
+          "correctAnswer": "د",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اذكر كلمة تبدأ بحرف الدال",
+          "correctAnswer": "دار",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (دار) يأتي حرف ___ في البداية",
+          "correctAnswer": "الدال",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "دجاجة",
+          "correctAnswer": "دجاجة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "دب",
+          "correctAnswer": "دب",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "ديك",
+          "correctAnswer": "ديك",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (دار)",
+          "correctAnswer": "د، ا، ر",
+          "options": [
+            "ا",
+            "ر",
+            "د"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "د",
+          "correctAnswer": "د",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "دا",
+          "correctAnswer": "دا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف الباء",
+      "orderIndex": 3,
+      "content": "حرف الباء شكله مثل الصحن وتحته نقطة واحدة. كلمات: بيت، بطة، باب، بقرة.",
+      "objectives": "التعرف إلى حرف الباء اسماً وشكلاً وصوتاً، قراءة وكتابة حرف الباء",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "كم نقطة تحت حرف الباء؟",
+          "correctAnswer": "نقطة واحدة",
+          "options": [
+            "نقطة واحدة",
+            "نقطتان",
+            "ثلاث نقاط",
+            "بدون نقاط"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "كلمة \"بيت\" تبدأ بحرف الباء",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الباء",
+          "correctAnswer": "ب",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف الباء؟",
+          "correctAnswer": "باب",
+          "options": [
+            "باب",
+            "تاج",
+            "سمك",
+            "نمر"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (بيت) يأتي حرف ___ في البداية",
+          "correctAnswer": "الباء",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "باب",
+          "correctAnswer": "باب",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "بطة",
+          "correctAnswer": "بطة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "بيت",
+          "correctAnswer": "بيت",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (بيت)",
+          "correctAnswer": "ب، ي، ت",
+          "options": [
+            "ي",
+            "ت",
+            "ب"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ب",
+          "correctAnswer": "ب",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "با",
+          "correctAnswer": "با",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "مراجعة (١)",
+      "orderIndex": 4,
+      "content": "مراجعة حروف الراء والدال والباء. نتدرب على قراءتها وكتابتها.",
+      "objectives": "مراجعة شاملة لحروف ر، د، ب",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي حرف تحته نقطة واحدة؟",
+          "correctAnswer": "الباء",
+          "options": [
+            "الراء",
+            "الدال",
+            "الباء",
+            "الميم"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "نراجع: حرف الباء تحته نقطة وحرف الراء بدون نقاط",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "نراجع: اكتب حروف ر د ب بترتيبها",
+          "correctAnswer": "ر د ب",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "رمل",
+          "correctAnswer": "رمل",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "درس",
+          "correctAnswer": "درس",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "بحر",
+          "correctAnswer": "بحر",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "رد",
+          "correctAnswer": "رد",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "بد",
+          "correctAnswer": "بد",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (راعي): ع، ر، ي، ا",
+          "correctAnswer": "ر، ا، ع، ي",
+          "options": [
+            "ع",
+            "ر",
+            "ي",
+            "ا"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف الميم",
+      "orderIndex": 5,
+      "content": "حرف الميم شكله دائري. كلمات: موز، مدرسة، ماء، ملك، مريم.",
+      "objectives": "التعرف إلى حرف الميم اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف الميم؟",
+          "correctAnswer": "موز",
+          "options": [
+            "موز",
+            "نور",
+            "سمك",
+            "بيت"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "كلمة \"مدرسة\" تبدأ بحرف الميم",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الميم",
+          "correctAnswer": "م",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اذكر كلمة تبدأ بحرف الميم",
+          "correctAnswer": "ماء",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (موز) يأتي حرف ___ في البداية",
+          "correctAnswer": "الميم",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "موز",
+          "correctAnswer": "موز",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "ماء",
+          "correctAnswer": "ماء",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "ملك",
+          "correctAnswer": "ملك",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (موز)",
+          "correctAnswer": "م، و، ز",
+          "options": [
+            "و",
+            "ز",
+            "م"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "م",
+          "correctAnswer": "م",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ما",
+          "correctAnswer": "ما",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف النون",
+      "orderIndex": 6,
+      "content": "حرف النون شكله مثل الصحن وفوقه نقطة. كلمات: نحلة، نجمة، نار، نمر.",
+      "objectives": "التعرف إلى حرف النون اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "كم نقطة فوق حرف النون؟",
+          "correctAnswer": "نقطة واحدة",
+          "options": [
+            "بدون نقاط",
+            "نقطة واحدة",
+            "نقطتان",
+            "ثلاث نقاط"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "كلمة \"نجمة\" تبدأ بحرف النون",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف النون",
+          "correctAnswer": "ن",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (نمر) يأتي حرف ___ في البداية",
+          "correctAnswer": "النون",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "نجمة",
+          "correctAnswer": "نجمة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "نحلة",
+          "correctAnswer": "نحلة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "نار",
+          "correctAnswer": "نار",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (نمر)",
+          "correctAnswer": "ن، م، ر",
+          "options": [
+            "م",
+            "ر",
+            "ن"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ن",
+          "correctAnswer": "ن",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "نا",
+          "correctAnswer": "نا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف السين",
+      "orderIndex": 7,
+      "content": "حرف السين شكله مثل الأسنان. كلمات: سمكة، سيارة، سماء، سلحفاة.",
+      "objectives": "التعرف إلى حرف السين اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف السين؟",
+          "correctAnswer": "سمكة",
+          "options": [
+            "سمكة",
+            "زهرة",
+            "قمر",
+            "كتاب"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف السين ليس له نقاط",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف السين",
+          "correctAnswer": "س",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (سمكة) يأتي حرف ___ في البداية",
+          "correctAnswer": "السين",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "سمكة",
+          "correctAnswer": "سمكة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "ساعة",
+          "correctAnswer": "ساعة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "سلم",
+          "correctAnswer": "سلم",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (سمكة)",
+          "correctAnswer": "س، م، ك، ة",
+          "options": [
+            "ك",
+            "ة",
+            "س",
+            "م"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "س",
+          "correctAnswer": "س",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "سا",
+          "correctAnswer": "سا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "مراجعة (٢)",
+      "orderIndex": 8,
+      "content": "مراجعة حروف الميم والنون والسين.",
+      "objectives": "مراجعة شاملة لحروف م، ن، س",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي حرف فوقه نقطة واحدة؟",
+          "correctAnswer": "النون",
+          "options": [
+            "الميم",
+            "النون",
+            "السين",
+            "الراء"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف السين له ثلاث أسنان",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "نراجع: اكتب الحرف الذي يبدأ به اسم (سمك)",
+          "correctAnswer": "س",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "مدرسة",
+          "correctAnswer": "مدرسة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "نهر",
+          "correctAnswer": "نهر",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "سحاب",
+          "correctAnswer": "سحاب",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "من",
+          "correctAnswer": "من",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "نس",
+          "correctAnswer": "نس",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (نسيم): م، س، ن، ي",
+          "correctAnswer": "ن، س، ي، م",
+          "options": [
+            "م",
+            "س",
+            "ن",
+            "ي"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف الزاي",
+      "orderIndex": 9,
+      "content": "حرف الزاي شكله مثل الراء وفوقه نقطة. كلمات: زهرة، زرافة، زيت، زيتون.",
+      "objectives": "التعرف إلى حرف الزاي اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف الزاي؟",
+          "correctAnswer": "زهرة",
+          "options": [
+            "زهرة",
+            "رمان",
+            "سمك",
+            "دار"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف الزاي فوقه نقطة واحدة",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الزاي",
+          "correctAnswer": "ز",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (زيت) يأتي حرف ___ في البداية",
+          "correctAnswer": "الزاي",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "زهرة",
+          "correctAnswer": "زهرة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "زرافة",
+          "correctAnswer": "زرافة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "زيت",
+          "correctAnswer": "زيت",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (زيت)",
+          "correctAnswer": "ز، ي، ت",
+          "options": [
+            "ي",
+            "ت",
+            "ز"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ز",
+          "correctAnswer": "ز",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "زا",
+          "correctAnswer": "زا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف الحاء",
+      "orderIndex": 10,
+      "content": "حرف الحاء شكله مثل الجيم بدون نقطة. كلمات: حصان، حمامة، حليب، حقيبة.",
+      "objectives": "التعرف إلى حرف الحاء اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف الحاء؟",
+          "correctAnswer": "حصان",
+          "options": [
+            "حصان",
+            "خروف",
+            "جمل",
+            "بقرة"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف الحاء ليس له نقاط",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الحاء",
+          "correctAnswer": "ح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (حصان) يأتي حرف ___ في البداية",
+          "correctAnswer": "الحاء",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "حصان",
+          "correctAnswer": "حصان",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "حليب",
+          "correctAnswer": "حليب",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "حوت",
+          "correctAnswer": "حوت",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (حصان)",
+          "correctAnswer": "ح، ص، ا، ن",
+          "options": [
+            "ا",
+            "ن",
+            "ح",
+            "ص"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ح",
+          "correctAnswer": "ح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "حا",
+          "correctAnswer": "حا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف اللام",
+      "orderIndex": 11,
+      "content": "حرف اللام شكله مثل العصا المنحنية. كلمات: ليمون، لعبة، لبن، لون.",
+      "objectives": "التعرف إلى حرف اللام اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف اللام؟",
+          "correctAnswer": "ليمون",
+          "options": [
+            "ليمون",
+            "نجمة",
+            "موز",
+            "كتاب"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "كلمة \"لعبة\" تبدأ بحرف اللام",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف اللام",
+          "correctAnswer": "ل",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (لون) يأتي حرف ___ في البداية",
+          "correctAnswer": "اللام",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "ليمون",
+          "correctAnswer": "ليمون",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "لعبة",
+          "correctAnswer": "لعبة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "لوح",
+          "correctAnswer": "لوح",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (لون)",
+          "correctAnswer": "ل، و، ن",
+          "options": [
+            "و",
+            "ن",
+            "ل"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ل",
+          "correctAnswer": "ل",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "لا",
+          "correctAnswer": "لا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "مراجعة (٣)",
+      "orderIndex": 12,
+      "content": "مراجعة حروف الزاي والحاء واللام.",
+      "objectives": "مراجعة شاملة لحروف ز، ح، ل",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي حرف ليس له نقاط من هذه الحروف؟",
+          "correctAnswer": "اللام",
+          "options": [
+            "الزاي",
+            "الحاء",
+            "اللام",
+            "الحاء واللام"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف الزاي شكله مثل الراء مع نقطة",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "نراجع: اكتب الحرف الذي يبدأ به اسم (ليمون)",
+          "correctAnswer": "ل",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "زبيب",
+          "correctAnswer": "زبيب",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "مراجعة: حليب",
+          "correctAnswer": "حليب",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "لباس",
+          "correctAnswer": "لباس",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "زر",
+          "correctAnswer": "زر",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "حل",
+          "correctAnswer": "حل",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (حليب): ل، ب، ح، ي",
+          "correctAnswer": "ح، ل، ي، ب",
+          "options": [
+            "ل",
+            "ب",
+            "ح",
+            "ي"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف التاء",
+      "orderIndex": 13,
+      "content": "حرف التاء شكله مثل الباء لكن فوقه نقطتان. كلمات: تفاح، تمر، تاج، تين.",
+      "objectives": "التعرف إلى حرف التاء اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "كم نقطة فوق حرف التاء؟",
+          "correctAnswer": "نقطتان",
+          "options": [
+            "بدون نقاط",
+            "نقطة واحدة",
+            "نقطتان",
+            "ثلاث نقاط"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "كلمة \"تفاح\" تبدأ بحرف التاء",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف التاء",
+          "correctAnswer": "ت",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (تاج) يأتي حرف ___ في البداية",
+          "correctAnswer": "التاء",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "تاج",
+          "correctAnswer": "تاج",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "تفاحة",
+          "correctAnswer": "تفاحة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "توت",
+          "correctAnswer": "توت",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (تاج)",
+          "correctAnswer": "ت، ا، ج",
+          "options": [
+            "ا",
+            "ج",
+            "ت"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ت",
+          "correctAnswer": "ت",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "تا",
+          "correctAnswer": "تا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف الجيم",
+      "orderIndex": 14,
+      "content": "حرف الجيم شكله مثل الحاء وتحته نقطة. كلمات: جمل، جبل، جرس، جزر.",
+      "objectives": "التعرف إلى حرف الجيم اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف الجيم؟",
+          "correctAnswer": "جمل",
+          "options": [
+            "جمل",
+            "حصان",
+            "خروف",
+            "دجاجة"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف الجيم تحته نقطة واحدة",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الجيم",
+          "correctAnswer": "ج",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (جمل) يأتي حرف ___ في البداية",
+          "correctAnswer": "الجيم",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "جمل",
+          "correctAnswer": "جمل",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "جبل",
+          "correctAnswer": "جبل",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "جزر",
+          "correctAnswer": "جزر",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (جمل)",
+          "correctAnswer": "ج، م، ل",
+          "options": [
+            "م",
+            "ل",
+            "ج"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ج",
+          "correctAnswer": "ج",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "جا",
+          "correctAnswer": "جا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف الفاء",
+      "orderIndex": 15,
+      "content": "حرف الفاء شكله دائري وفوقه نقطة. كلمات: فراشة، فيل، فأر، فول.",
+      "objectives": "التعرف إلى حرف الفاء اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف الفاء؟",
+          "correctAnswer": "فراشة",
+          "options": [
+            "فراشة",
+            "قمر",
+            "كتاب",
+            "نحلة"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف الفاء فوقه نقطة واحدة",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الفاء",
+          "correctAnswer": "ف",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (فيل) يأتي حرف ___ في البداية",
+          "correctAnswer": "الفاء",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "فيل",
+          "correctAnswer": "فيل",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "فراشة",
+          "correctAnswer": "فراشة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "فستان",
+          "correctAnswer": "فستان",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (فيل)",
+          "correctAnswer": "ف، ي، ل",
+          "options": [
+            "ي",
+            "ل",
+            "ف"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ف",
+          "correctAnswer": "ف",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "فا",
+          "correctAnswer": "فا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "مراجعة (٤)",
+      "orderIndex": 16,
+      "content": "مراجعة حروف التاء والجيم والفاء.",
+      "objectives": "مراجعة شاملة لحروف ت، ج، ف",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي حرف فوقه نقطتان؟",
+          "correctAnswer": "التاء",
+          "options": [
+            "الجيم",
+            "الفاء",
+            "التاء",
+            "الباء"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف الفاء والجيم كلاهما لهما نقطة واحدة",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "نراجع: اكتب الحرف الذي يبدأ به اسم (فيل)",
+          "correctAnswer": "ف",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "تفاح",
+          "correctAnswer": "تفاح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "مراجعة: جزر",
+          "correctAnswer": "جزر",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "مراجعة: فراشة",
+          "correctAnswer": "فراشة",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "تج",
+          "correctAnswer": "تج",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "جف",
+          "correctAnswer": "جف",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (شعر): ر، ع، ش",
+          "correctAnswer": "ش، ع، ر",
+          "options": [
+            "ر",
+            "ع",
+            "ش"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف العين",
+      "orderIndex": 17,
+      "content": "حرف العين شكله مثل الرقم ٣ بالعربي. كلمات: عصفور، عنب، عين، علم.",
+      "objectives": "التعرف إلى حرف العين اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف العين؟",
+          "correctAnswer": "عصفور",
+          "options": [
+            "عصفور",
+            "غزال",
+            "فيل",
+            "قطة"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف العين ليس له نقاط",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف العين",
+          "correctAnswer": "ع",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (علم) يأتي حرف ___ في البداية",
+          "correctAnswer": "العين",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "عصفور",
+          "correctAnswer": "عصفور",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "علم",
+          "correctAnswer": "علم",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "عسل",
+          "correctAnswer": "عسل",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (علم)",
+          "correctAnswer": "ع، ل، م",
+          "options": [
+            "ل",
+            "م",
+            "ع"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ع",
+          "correctAnswer": "ع",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "عا",
+          "correctAnswer": "عا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف الشين",
+      "orderIndex": 18,
+      "content": "حرف الشين شكله مثل السين وفوقه ثلاث نقاط. كلمات: شمس، شجرة، شمعة، شاطئ.",
+      "objectives": "التعرف إلى حرف الشين اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "كم نقطة فوق حرف الشين؟",
+          "correctAnswer": "ثلاث نقاط",
+          "options": [
+            "بدون نقاط",
+            "نقطة واحدة",
+            "نقطتان",
+            "ثلاث نقاط"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "كلمة \"شمس\" تبدأ بحرف الشين",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الشين",
+          "correctAnswer": "ش",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (شمس) يأتي حرف ___ في البداية",
+          "correctAnswer": "الشين",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "شمس",
+          "correctAnswer": "شمس",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "شجرة",
+          "correctAnswer": "شجرة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "شاي",
+          "correctAnswer": "شاي",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (شمس)",
+          "correctAnswer": "ش، م، س",
+          "options": [
+            "م",
+            "س",
+            "ش"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ش",
+          "correctAnswer": "ش",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "شا",
+          "correctAnswer": "شا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف الصاد",
+      "orderIndex": 19,
+      "content": "حرف الصاد شكله مستدير ومغلق. كلمات: صقر، صابون، صحن، صورة.",
+      "objectives": "التعرف إلى حرف الصاد اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف الصاد؟",
+          "correctAnswer": "صقر",
+          "options": [
+            "صقر",
+            "ضفدع",
+            "طائر",
+            "ظرف"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف الصاد ليس له نقاط",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الصاد",
+          "correctAnswer": "ص",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (صقر) يأتي حرف ___ في البداية",
+          "correctAnswer": "الصاد",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "صقر",
+          "correctAnswer": "صقر",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "صحن",
+          "correctAnswer": "صحن",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "صندوق",
+          "correctAnswer": "صندوق",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (صقر)",
+          "correctAnswer": "ص، ق، ر",
+          "options": [
+            "ق",
+            "ر",
+            "ص"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ص",
+          "correctAnswer": "ص",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "صا",
+          "correctAnswer": "صا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "مراجعة (٥)",
+      "orderIndex": 20,
+      "content": "مراجعة حروف العين والشين والصاد.",
+      "objectives": "مراجعة شاملة لحروف ع، ش، ص",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي حرف فوقه ثلاث نقاط؟",
+          "correctAnswer": "الشين",
+          "options": [
+            "العين",
+            "الشين",
+            "الصاد",
+            "السين"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف العين والصاد ليس لهما نقاط",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "نراجع: اكتب الحرف الذي يبدأ به اسم (صورة)",
+          "correctAnswer": "ص",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "مراجعة: عسل",
+          "correctAnswer": "عسل",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "مراجعة: شجرة",
+          "correctAnswer": "شجرة",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "صابون",
+          "correctAnswer": "صابون",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "عش",
+          "correctAnswer": "عش",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "شص",
+          "correctAnswer": "شص",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (صوت): ت، و، ص",
+          "correctAnswer": "ص، و، ت",
+          "options": [
+            "ت",
+            "و",
+            "ص"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف القاف",
+      "orderIndex": 21,
+      "content": "حرف القاف شكله دائري وفوقه نقطتان. كلمات: قمر، قطة، قلم، قلب.",
+      "objectives": "التعرف إلى حرف القاف اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "كم نقطة فوق حرف القاف؟",
+          "correctAnswer": "نقطتان",
+          "options": [
+            "بدون نقاط",
+            "نقطة واحدة",
+            "نقطتان",
+            "ثلاث نقاط"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "كلمة \"قمر\" تبدأ بحرف القاف",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف القاف",
+          "correctAnswer": "ق",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (قمر) يأتي حرف ___ في البداية",
+          "correctAnswer": "القاف",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "قلم",
+          "correctAnswer": "قلم",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "قمر",
+          "correctAnswer": "قمر",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "قطة",
+          "correctAnswer": "قطة",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (قمر)",
+          "correctAnswer": "ق، م، ر",
+          "options": [
+            "م",
+            "ر",
+            "ق"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ق",
+          "correctAnswer": "ق",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "قا",
+          "correctAnswer": "قا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف الثاء",
+      "orderIndex": 22,
+      "content": "حرف الثاء شكله مثل الباء والتاء لكن فوقه ثلاث نقاط. كلمات: ثعلب، ثلج، ثوب، ثمرة.",
+      "objectives": "التعرف إلى حرف الثاء اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "كم نقطة فوق حرف الثاء؟",
+          "correctAnswer": "ثلاث نقاط",
+          "options": [
+            "بدون نقاط",
+            "نقطة واحدة",
+            "نقطتان",
+            "ثلاث نقاط"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "كلمة \"ثعلب\" تبدأ بحرف الثاء",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الثاء",
+          "correctAnswer": "ث",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (ثلج) يأتي حرف ___ في البداية",
+          "correctAnswer": "الثاء",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "ثعلب",
+          "correctAnswer": "ثعلب",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "ثوب",
+          "correctAnswer": "ثوب",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "ثلج",
+          "correctAnswer": "ثلج",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (ثلج)",
+          "correctAnswer": "ث، ل، ج",
+          "options": [
+            "ل",
+            "ج",
+            "ث"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ث",
+          "correctAnswer": "ث",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "ثا",
+          "correctAnswer": "ثا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "حرف الخاء",
+      "orderIndex": 23,
+      "content": "حرف الخاء شكله مثل الحاء والجيم وفوقه نقطة. كلمات: خروف، خبز، خيمة، خاتم.",
+      "objectives": "التعرف إلى حرف الخاء اسماً وشكلاً وصوتاً",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "أي كلمة تبدأ بحرف الخاء؟",
+          "correctAnswer": "خروف",
+          "options": [
+            "خروف",
+            "حصان",
+            "جمل",
+            "دجاجة"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف الخاء فوقه نقطة واحدة",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "اكتب حرف الخاء",
+          "correctAnswer": "خ",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "أكمل: في كلمة (خبز) يأتي حرف ___ في البداية",
+          "correctAnswer": "الخاء",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "خبز",
+          "correctAnswer": "خبز",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "خروف",
+          "correctAnswer": "خروف",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "خيار",
+          "correctAnswer": "خيار",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (خبز)",
+          "correctAnswer": "خ، ب، ز",
+          "options": [
+            "ب",
+            "ز",
+            "خ"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "خ",
+          "correctAnswer": "خ",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "خا",
+          "correctAnswer": "خا",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "مراجعة (٦)",
+      "orderIndex": 24,
+      "content": "مراجعة شاملة لحروف القاف والثاء والخاء ومراجعة نهائية للفصل الأول.",
+      "objectives": "مراجعة شاملة لجميع حروف الفصل الأول",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "كم حرفاً تعلمنا في الفصل الأول؟",
+          "correctAnswer": "١٨ حرفاً",
+          "options": [
+            "١٠ حروف",
+            "١٥ حرفاً",
+            "١٨ حرفاً",
+            "٢٨ حرفاً"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "حرف الباء تحته نقطة وحرف التاء فوقه نقطتان",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "نراجع: اكتب الحرف الذي يبدأ به اسم (ثعلب)",
+          "correctAnswer": "ث",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "مراجعة: قلم",
+          "correctAnswer": "قلم",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "مراجعة: ثوب",
+          "correctAnswer": "ثوب",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "مراجعة: خروف",
+          "correctAnswer": "خروف",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "قث",
+          "correctAnswer": "قث",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "خق",
+          "correctAnswer": "خق",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "رتّب الحروف لتكوين كلمة (قمر): م، ق، ر",
+          "correctAnswer": "ق، م، ر",
+          "options": [
+            "م",
+            "ق",
+            "ر"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    }
+  ],
+  "totalLessons": 24
+}

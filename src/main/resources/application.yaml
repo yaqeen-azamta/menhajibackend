@@ -1,0 +1,78 @@
+spring:
+  application:
+    name: Manhaji
+
+  # MySQL Database
+  datasource:
+    url: jdbc:mysql://localhost:3306/menhaji?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&useUnicode=true
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA / Hibernate
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+
+  # File Upload
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+# Server
+server:
+  port: 8080
+
+# JWT Configuration
+# Audit fix S1 (2026-04-29): the signing secret must NEVER be committed to source.
+# Set MANHAJI_JWT_SECRET in the environment (Base64-encoded ≥256-bit random key).
+# The default value below ONLY works for local dev — it is intentionally unsuitable
+# for any deployment outside the developer's laptop.
+# Generate a production secret with: openssl rand -base64 32
+app:
+  jwt:
+    secret: ${MANHAJI_JWT_SECRET:bWFuaGFqaS1kZXYtb25seS1zZWNyZXQtY2hhbmdlLWluLXByb2R1Y3Rpb24tcGxlYXNlLW5vdy0xMjM=}
+    access-token-expiration: 86400000    # 24 hours
+    refresh-token-expiration: 604800000  # 7 days
+
+  # AI Service API Keys (set via environment variables in production)
+  ai:
+    gemini:
+      api-key: ${GEMINI_API_KEY:not-set}
+      model: gemini-2.5-flash
+    whisper:
+      api-key: unused  # Transcription now uses Gemini instead of OpenAI Whisper
+    google-tts:
+      api-key: ${GOOGLE_TTS_API_KEY:not-set}
+
+  # File Storage
+  storage:
+    upload-dir: ./uploads
+    audio-dir: ./uploads/audio
+    image-dir: ./uploads/images
+
+  # Quiz scoring / progression
+  quiz:
+    points-per-correct: 10
+    mastery-threshold: 80.0
+    completion-threshold: 50.0
+    max-hint-level: 3
+
+# Curriculum re-seeding — set to true ONCE, boot, then flip back to false.
+# Wipes subjects/lessons/questions/quizzes/attempts/responses and re-imports
+# from /resources/curriculum/*.json. Never enable in production.
+manhaji:
+  curriculum:
+    reseed: false
+
+# Logging
+logging:
+  level:
+    com.springboot.manhaji: DEBUG
+    org.hibernate.SQL: DEBUG

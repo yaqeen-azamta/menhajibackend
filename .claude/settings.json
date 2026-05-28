@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SHOW TABLES;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"DESCRIBE student_question_answers;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"DESCRIBE progress;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT id, type, question_text, correct_answer, difficulty_level FROM questions LIMIT 10;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT id, student_id, question_id, lesson_id, is_correct, score FROM student_question_answers LIMIT 5;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SHOW CREATE TABLE student_question_answers\\\\G\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT id, type, correct_answer, lesson_id FROM questions WHERE lesson_id=1 ORDER BY id;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT student_id, question_id, lesson_id, is_correct, score FROM student_question_answers WHERE question_id IN \\(12, 105\\) LIMIT 10;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT s.id, s.student_id, s.lesson_id, s.completion_status, s.mastery_level, s.completed_at FROM progress s WHERE s.student_id=1 LIMIT 10;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT COUNT\\(*\\) as progress_count FROM progress; SELECT COUNT\\(*\\) as student_count FROM students;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT student_id, lesson_id, completion_status FROM progress LIMIT 5; SELECT id, role, username FROM users LIMIT 5; DESCRIBE users;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT student_id, lesson_id, completion_status FROM progress LIMIT 5;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"DESCRIBE users;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT id, dtype, username FROM users LIMIT 5;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT id, role, full_name, grade_level, total_points, current_streak FROM users WHERE id <= 5;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT id, role, full_name FROM users WHERE role='STUDENT';\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e ' *)"
+    ]
+  }
+}

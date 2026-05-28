@@ -1,0 +1,1081 @@
+{
+  "subject": "English",
+  "subjectCode": "en",
+  "gradeLevel": 1,
+  "semester": 2,
+  "lessons": [
+    {
+      "title": "My House (Unit 10)",
+      "orderIndex": 1,
+      "content": "House rooms: bedroom, kitchen, bathroom, living room, garden. I sleep in the bedroom.",
+      "objectives": "Learn house and room vocabulary",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "Where do you sleep?",
+          "correctAnswer": "Bedroom",
+          "options": [
+            "Kitchen",
+            "Bedroom",
+            "Bathroom",
+            "Garden"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Kitchen' is where we cook",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What is 'حديقة' in English?",
+          "correctAnswer": "Garden",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: We sleep in the ___ at night",
+          "correctAnswer": "bedroom",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Home",
+          "correctAnswer": "Home",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Where do we sleep in a house?",
+          "correctAnswer": "Bedroom",
+          "options": [
+            "Kitchen",
+            "Bedroom",
+            "Garden",
+            "Garage"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "We cook food in the kitchen",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: We watch TV in the ___ room",
+          "correctAnswer": "living",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: House",
+          "correctAnswer": "House",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: غرفة",
+          "correctAnswer": "Room",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put words in order: my, This, is, house",
+          "correctAnswer": "This, is, my, house",
+          "options": [
+            "my",
+            "This",
+            "is",
+            "house"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which room would you go to for a bath?",
+          "correctAnswer": "Bathroom",
+          "options": [
+            "Bedroom",
+            "Kitchen",
+            "Bathroom",
+            "Living room"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Clothes (Unit 11)",
+      "orderIndex": 2,
+      "content": "Clothes: shirt, pants, dress, shoes, hat, socks. I wear a shirt. She wears a dress.",
+      "objectives": "Learn clothing vocabulary",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What is 'قميص' in English?",
+          "correctAnswer": "Shirt",
+          "options": [
+            "Shirt",
+            "Pants",
+            "Dress",
+            "Shoes"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Shoes' means 'أحذية'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What do you wear on your feet?",
+          "correctAnswer": "Shoes",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I wear ___ on my hands when it is cold (covering for hands)",
+          "correctAnswer": "gloves",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Shoes",
+          "correctAnswer": "Shoes",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "We wear a coat in cold weather",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I wear a ___ on my head",
+          "correctAnswer": "hat",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Shirt",
+          "correctAnswer": "Shirt",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: قميص",
+          "correctAnswer": "Shirt",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which clothing keeps you warmest?",
+          "correctAnswer": "Coat",
+          "options": [
+            "T-shirt",
+            "Coat",
+            "Shorts",
+            "Sandals"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which clothing matches summer best?",
+          "correctAnswer": "Shorts",
+          "options": [
+            "Coat",
+            "Boots",
+            "Shorts",
+            "Mittens"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Numbers 6-10 (Unit 12)",
+      "orderIndex": 3,
+      "content": "Numbers: six, seven, eight, nine, ten. How many books? There are ten books.",
+      "objectives": "Learn numbers 6-10 in English",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What number is 'eight'?",
+          "correctAnswer": "8",
+          "options": [
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Ten' means '١٠'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Write the English word for ٧",
+          "correctAnswer": "Seven",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: ___ + 2 = 10 (write the number word)",
+          "correctAnswer": "eight",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Seven",
+          "correctAnswer": "Seven",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "How do we say '٧' in English?",
+          "correctAnswer": "Seven",
+          "options": [
+            "Six",
+            "Seven",
+            "Eight",
+            "Nine"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: Six, ___, eight, nine, ten",
+          "correctAnswer": "seven",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Ten' comes after 'nine'",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Eight",
+          "correctAnswer": "Eight",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put in order: ten, six, eight, seven, nine",
+          "correctAnswer": "six, seven, eight, nine, ten",
+          "options": [
+            "ten",
+            "six",
+            "eight",
+            "seven",
+            "nine"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Six plus four equals (in English):",
+          "correctAnswer": "Ten",
+          "options": [
+            "Eight",
+            "Nine",
+            "Ten",
+            "Eleven"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Toys (Unit 13)",
+      "orderIndex": 4,
+      "content": "Toys: ball, doll, car, teddy bear, kite. I have a ball. This is my toy car.",
+      "objectives": "Learn toy vocabulary",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What is 'كرة' in English?",
+          "correctAnswer": "Ball",
+          "options": [
+            "Ball",
+            "Doll",
+            "Car",
+            "Kite"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Doll' means 'دمية'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What flies in the sky?",
+          "correctAnswer": "Kite",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I fly a ___ in the wind (toy on a string)",
+          "correctAnswer": "kite",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Ball",
+          "correctAnswer": "Ball",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which toy is round and we kick or throw it?",
+          "correctAnswer": "Ball",
+          "options": [
+            "Doll",
+            "Ball",
+            "Car",
+            "Kite"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "A doll is a toy",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I play with a toy ___ on the road (vehicle)",
+          "correctAnswer": "car",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Toy",
+          "correctAnswer": "Toy",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: لعبة",
+          "correctAnswer": "Toy",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which toy flies in the wind?",
+          "correctAnswer": "Kite",
+          "options": [
+            "Ball",
+            "Doll",
+            "Kite",
+            "Car"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "If three children share two balls equally, how many children do not have a ball?",
+          "correctAnswer": "One",
+          "options": [
+            "Zero",
+            "One",
+            "Two",
+            "Three"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Weather (Unit 14)",
+      "orderIndex": 5,
+      "content": "Weather: sunny, rainy, cloudy, windy, hot, cold. It is sunny today. It is cold.",
+      "objectives": "Learn weather vocabulary",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "When the sun shines, it is:",
+          "correctAnswer": "Sunny",
+          "options": [
+            "Rainy",
+            "Sunny",
+            "Cloudy",
+            "Windy"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Rainy' means 'ممطر'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What is the weather like when it snows?",
+          "correctAnswer": "Cold",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: It is very hot in ___ (the season)",
+          "correctAnswer": "summer",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Sun",
+          "correctAnswer": "Sun",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "What weather is it when the sun is shining?",
+          "correctAnswer": "Sunny",
+          "options": [
+            "Rainy",
+            "Snowy",
+            "Sunny",
+            "Cloudy"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "We use an umbrella when it rains",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: In winter it is very ___",
+          "correctAnswer": "cold",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Rain",
+          "correctAnswer": "Rain",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: حار",
+          "correctAnswer": "Hot",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "When it snows, the ground becomes:",
+          "correctAnswer": "White",
+          "options": [
+            "Red",
+            "Green",
+            "Yellow",
+            "White"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which clothes do we wear in HOT weather?",
+          "correctAnswer": "T-shirt and shorts",
+          "options": [
+            "Coat and boots",
+            "T-shirt and shorts",
+            "Hat and gloves",
+            "Scarf and mittens"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Fruits & Vegetables (Unit 15)",
+      "orderIndex": 6,
+      "content": "Fruits: orange, grape, strawberry. Vegetables: tomato, cucumber, carrot. I like oranges.",
+      "objectives": "Learn fruit and vegetable vocabulary",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What is 'برتقالة' in English?",
+          "correctAnswer": "Orange",
+          "options": [
+            "Orange",
+            "Apple",
+            "Grape",
+            "Banana"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Carrot' is a vegetable",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What is 'خيار' in English?",
+          "correctAnswer": "Cucumber",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: A ___ is orange and crunchy (vegetable rabbits like)",
+          "correctAnswer": "carrot",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Orange",
+          "correctAnswer": "Orange",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which is a vegetable?",
+          "correctAnswer": "Carrot",
+          "options": [
+            "Apple",
+            "Banana",
+            "Carrot",
+            "Orange"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "Strawberry is a fruit",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: An ___ is a red or green round fruit",
+          "correctAnswer": "apple",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Tomato",
+          "correctAnswer": "Tomato",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: برتقالة",
+          "correctAnswer": "Orange",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which is yellow and curved?",
+          "correctAnswer": "Banana",
+          "options": [
+            "Apple",
+            "Banana",
+            "Tomato",
+            "Grape"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which is NOT a fruit?",
+          "correctAnswer": "Potato",
+          "options": [
+            "Apple",
+            "Banana",
+            "Potato",
+            "Grape"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Actions (Unit 16)",
+      "orderIndex": 7,
+      "content": "Actions: run, jump, walk, sit, stand, read, write. I can run. She can jump.",
+      "objectives": "Learn action verbs",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What is 'اركض' in English?",
+          "correctAnswer": "Run",
+          "options": [
+            "Run",
+            "Walk",
+            "Sit",
+            "Jump"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Jump' means 'اقفز'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What is 'اكتب' in English?",
+          "correctAnswer": "Write",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I ___ at night before bed (close my eyes)",
+          "correctAnswer": "sleep",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Run",
+          "correctAnswer": "Run",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "What action do we do with our legs?",
+          "correctAnswer": "Run",
+          "options": [
+            "Eat",
+            "Read",
+            "Run",
+            "Sleep"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "We use a book to read",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I ___ water when I am thirsty",
+          "correctAnswer": "drink",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Jump",
+          "correctAnswer": "Jump",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: يأكل",
+          "correctAnswer": "Eat",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put words in order: I, run, fast, can",
+          "correctAnswer": "I, can, run, fast",
+          "options": [
+            "I",
+            "run",
+            "fast",
+            "can"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which action belongs in a swimming pool?",
+          "correctAnswer": "Swim",
+          "options": [
+            "Run",
+            "Swim",
+            "Sleep",
+            "Read"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "My Day (Unit 17)",
+      "orderIndex": 8,
+      "content": "Daily routine: wake up, eat breakfast, go to school, play, sleep. In the morning, I wake up.",
+      "objectives": "Learn daily routine vocabulary",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What do you do first in the morning?",
+          "correctAnswer": "Wake up",
+          "options": [
+            "Wake up",
+            "Sleep",
+            "Play",
+            "Eat lunch"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "We eat breakfast in the morning",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Where do you go in the morning?",
+          "correctAnswer": "School",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I eat ___ at noon (the midday meal)",
+          "correctAnswer": "lunch",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Morning",
+          "correctAnswer": "Morning",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "What do we do at night?",
+          "correctAnswer": "Sleep",
+          "options": [
+            "Eat breakfast",
+            "Sleep",
+            "Go to school",
+            "Play"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I brush my ___ before bed",
+          "correctAnswer": "teeth",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: ليل",
+          "correctAnswer": "Night",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Order daily activities: lunch, breakfast, dinner",
+          "correctAnswer": "breakfast, lunch, dinner",
+          "options": [
+            "lunch",
+            "breakfast",
+            "dinner"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which activity is FIRST in a typical school day?",
+          "correctAnswer": "Wake up",
+          "options": [
+            "Sleep",
+            "Have lunch",
+            "Wake up",
+            "Go home"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Review (Unit 18)",
+      "orderIndex": 9,
+      "content": "Review all vocabulary from Units 10-17: house, clothes, numbers, toys, weather, food, actions, daily routine.",
+      "objectives": "Review all learned vocabulary from semester 2",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "Where do we cook?",
+          "correctAnswer": "Kitchen",
+          "options": [
+            "Bedroom",
+            "Kitchen",
+            "Garden",
+            "Bathroom"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Cold' is the opposite of 'hot'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Say three numbers in English",
+          "correctAnswer": "One two three",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Water",
+          "correctAnswer": "Water",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "How many days are in one week?",
+          "correctAnswer": "Seven",
+          "options": [
+            "Five",
+            "Six",
+            "Seven",
+            "Eight"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I wear ___ on my feet",
+          "correctAnswer": "shoes",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "A bedroom is where we sleep",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put words in order: I, an, eat, apple",
+          "correctAnswer": "I, eat, an, apple",
+          "options": [
+            "I",
+            "an",
+            "eat",
+            "apple"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: مدرسة",
+          "correctAnswer": "School",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "If today is Monday, what day comes next?",
+          "correctAnswer": "Tuesday",
+          "options": [
+            "Sunday",
+            "Tuesday",
+            "Friday",
+            "Saturday"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    }
+  ],
+  "totalLessons": 9
+}

@@ -1,0 +1,1712 @@
+{
+  "subject": "English",
+  "subjectCode": "en",
+  "gradeLevel": 1,
+  "semester": 1,
+  "lessons": [
+    {
+      "title": "English Alphabet (A-G)",
+      "orderIndex": 1,
+      "content": "Letters A B C D E F G. Sample words: Apple, Bag, Cat, Dog, Egg, Fish, Goat.",
+      "objectives": "Learn the first seven letters of the English alphabet (A-G), recognize their shapes, hear their sounds, and write them.",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "Which letter is FIRST in the English alphabet?",
+          "correctAnswer": "A",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which letter does the word 'Cat' start with?",
+          "correctAnswer": "C",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "G"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which letter sounds like /b/ as in 'Bag'?",
+          "correctAnswer": "B",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "B is the second letter of the English alphabet",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What letter comes after C?",
+          "correctAnswer": "D",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Write the first letter of the word 'Goat'",
+          "correctAnswer": "G",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: A, B, C, ___, E, F, G",
+          "correctAnswer": "D",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put the letters in alphabet order: F, A, D, B",
+          "correctAnswer": "A, B, D, F",
+          "options": [
+            "F",
+            "A",
+            "D",
+            "B"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the letter: A",
+          "correctAnswer": "A",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the letter: G",
+          "correctAnswer": "G",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter A",
+          "correctAnswer": "A",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter B",
+          "correctAnswer": "B",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter C",
+          "correctAnswer": "C",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter g (lowercase)",
+          "correctAnswer": "g",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "If APPLE starts with A and BANANA starts with B, what about EGG?",
+          "correctAnswer": "Starts with E",
+          "options": [
+            "Starts with A",
+            "Starts with B",
+            "Starts with E",
+            "Starts with F"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "English Alphabet (H-N)",
+      "orderIndex": 2,
+      "content": "Letters H I J K L M N. Sample words: Hat, Ice, Jam, Kite, Leg, Moon, Nest.",
+      "objectives": "Learn the second group of seven letters (H-N), recognize their shapes, hear their sounds, and write them.",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "Which letter does the word 'Hat' start with?",
+          "correctAnswer": "H",
+          "options": [
+            "G",
+            "H",
+            "I",
+            "J"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which letter comes between K and M in the alphabet?",
+          "correctAnswer": "L",
+          "options": [
+            "I",
+            "J",
+            "L",
+            "N"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which word starts with the letter J?",
+          "correctAnswer": "Jam",
+          "options": [
+            "Hat",
+            "Ice",
+            "Jam",
+            "Kite"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "M comes before N in the English alphabet",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What letter comes after H?",
+          "correctAnswer": "I",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Write the first letter of the word 'Moon'",
+          "correctAnswer": "M",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: H, I, J, ___, L, M, N",
+          "correctAnswer": "K",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put the letters in alphabet order: N, J, L, H, K",
+          "correctAnswer": "H, J, K, L, N",
+          "options": [
+            "N",
+            "J",
+            "L",
+            "H",
+            "K"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the letter: J",
+          "correctAnswer": "J",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the letter: K",
+          "correctAnswer": "K",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter H",
+          "correctAnswer": "H",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter I",
+          "correctAnswer": "I",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter L",
+          "correctAnswer": "L",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter n (lowercase)",
+          "correctAnswer": "n",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which letter is the SAME shape upside down: H, M, or J?",
+          "correctAnswer": "H",
+          "options": [
+            "H",
+            "M",
+            "J",
+            "None"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "English Alphabet (O-T)",
+      "orderIndex": 3,
+      "content": "Letters O P Q R S T. Sample words: Orange, Pen, Queen, Rabbit, Sun, Tree.",
+      "objectives": "Learn the third group of six letters (O-T), recognize their shapes, hear their sounds, and write them.",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "Which letter does the word 'Sun' start with?",
+          "correctAnswer": "S",
+          "options": [
+            "O",
+            "P",
+            "S",
+            "T"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which letter looks like a circle?",
+          "correctAnswer": "O",
+          "options": [
+            "O",
+            "P",
+            "Q",
+            "T"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which letter sounds like /t/ as in 'Tree'?",
+          "correctAnswer": "T",
+          "options": [
+            "P",
+            "Q",
+            "S",
+            "T"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "Q is followed by R in the English alphabet",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What letter comes between O and Q?",
+          "correctAnswer": "P",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Write the first letter of the word 'Rabbit'",
+          "correctAnswer": "R",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: O, P, Q, ___, S, T",
+          "correctAnswer": "R",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put the letters in alphabet order: T, P, R, O, S",
+          "correctAnswer": "O, P, R, S, T",
+          "options": [
+            "T",
+            "P",
+            "R",
+            "O",
+            "S"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the letter: Q",
+          "correctAnswer": "Q",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the letter: R",
+          "correctAnswer": "R",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter O",
+          "correctAnswer": "O",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter P",
+          "correctAnswer": "P",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter S",
+          "correctAnswer": "S",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter t (lowercase)",
+          "correctAnswer": "t",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which TWO letters look most alike: O, P, Q?",
+          "correctAnswer": "O and Q",
+          "options": [
+            "O and P",
+            "O and Q",
+            "P and Q",
+            "All look the same"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "English Alphabet (U-Z)",
+      "orderIndex": 4,
+      "content": "Letters U V W X Y Z. Sample words: Umbrella, Van, Water, Box, Yellow, Zoo.",
+      "objectives": "Learn the last six letters (U-Z), recognize their shapes, hear their sounds, and write them.",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "Which letter is the LAST in the English alphabet?",
+          "correctAnswer": "Z",
+          "options": [
+            "W",
+            "X",
+            "Y",
+            "Z"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which letter does the word 'Zoo' start with?",
+          "correctAnswer": "Z",
+          "options": [
+            "X",
+            "Y",
+            "Z",
+            "W"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which letter sounds like /w/ as in 'Water'?",
+          "correctAnswer": "W",
+          "options": [
+            "U",
+            "V",
+            "W",
+            "X"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "There are 26 letters in the English alphabet",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What letter comes after V?",
+          "correctAnswer": "W",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Write the first letter of the word 'Yellow'",
+          "correctAnswer": "Y",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: U, V, W, X, ___, Z",
+          "correctAnswer": "Y",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put the letters in alphabet order: Z, V, X, U, W, Y",
+          "correctAnswer": "U, V, W, X, Y, Z",
+          "options": [
+            "Z",
+            "V",
+            "X",
+            "U",
+            "W",
+            "Y"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the letter: W",
+          "correctAnswer": "W",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the letter: Y",
+          "correctAnswer": "Y",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter V",
+          "correctAnswer": "V",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter X",
+          "correctAnswer": "X",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter Y",
+          "correctAnswer": "Y",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "TRACING",
+          "questionText": "Trace the letter z (lowercase)",
+          "correctAnswer": "z",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "handwriting"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "If we sing the alphabet song, which letter do we sing JUST BEFORE Z?",
+          "correctAnswer": "Y",
+          "options": [
+            "W",
+            "X",
+            "Y",
+            "U"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Hello! (Unit 1)",
+      "orderIndex": 5,
+      "content": "Greetings: Hello, Hi, Good morning, Good bye. My name is ___. What is your name?",
+      "objectives": "Learn basic greetings and introductions in English",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What do you say when you meet someone?",
+          "correctAnswer": "Hello",
+          "options": [
+            "Hello",
+            "Goodbye",
+            "Sorry",
+            "Thank you"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Hello' means 'مرحباً'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What is the English word for 'مرحباً'?",
+          "correctAnswer": "Hello",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: Good ___! (greeting in the early hours)",
+          "correctAnswer": "morning",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Hello",
+          "correctAnswer": "Hello",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "What do you say in the evening when you leave?",
+          "correctAnswer": "Good evening",
+          "options": [
+            "Good morning",
+            "Good night",
+            "Good evening",
+            "Hi"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate to English: مع السلامة",
+          "correctAnswer": "Goodbye",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "We say 'Good night' before going to sleep",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Goodbye",
+          "correctAnswer": "Goodbye",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put in order to greet: morning, Good, !",
+          "correctAnswer": "Good, morning, !",
+          "options": [
+            "morning",
+            "Good",
+            "!"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "When meeting a teacher in the morning, the BEST greeting is:",
+          "correctAnswer": "Good morning, teacher!",
+          "options": [
+            "Hi!",
+            "Good morning, teacher!",
+            "Bye!",
+            "Good night!"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "My School (Unit 2)",
+      "orderIndex": 6,
+      "content": "School words: book, pen, pencil, bag, ruler, eraser. This is a book. That is a pen.",
+      "objectives": "Learn school supplies vocabulary",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What is 'كتاب' in English?",
+          "correctAnswer": "Book",
+          "options": [
+            "Book",
+            "Pen",
+            "Bag",
+            "Ruler"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Pen' means 'قلم'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What is 'حقيبة' in English?",
+          "correctAnswer": "Bag",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "What do you write with?",
+          "correctAnswer": "Pencil",
+          "options": [
+            "Book",
+            "Pencil",
+            "Bag",
+            "Ruler"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I go to ___ every morning.",
+          "correctAnswer": "school",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Book",
+          "correctAnswer": "Book",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "What is 'مسطرة' in English?",
+          "correctAnswer": "Ruler",
+          "options": [
+            "Pen",
+            "Ruler",
+            "Eraser",
+            "Bag"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "An eraser is used to erase pencil marks",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: School",
+          "correctAnswer": "School",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate to English: ممحاة",
+          "correctAnswer": "Eraser",
+          "options": null,
+          "difficultyLevel": 2,
+          "subSkill": "production"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put words in order: book, This, is, a",
+          "correctAnswer": "This, is, a, book",
+          "options": [
+            "book",
+            "This",
+            "is",
+            "a"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which item do you NOT bring to school?",
+          "correctAnswer": "Refrigerator",
+          "options": [
+            "Pencil",
+            "Book",
+            "Refrigerator",
+            "Bag"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "My Family (Unit 3)",
+      "orderIndex": 7,
+      "content": "Family: father, mother, brother, sister, baby. This is my father. She is my mother.",
+      "objectives": "Learn family members vocabulary",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What is 'أب' in English?",
+          "correctAnswer": "Father",
+          "options": [
+            "Father",
+            "Mother",
+            "Brother",
+            "Sister"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Mother' means 'أم'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What is 'أخت' in English?",
+          "correctAnswer": "Sister",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: My ___ is a girl in my family",
+          "correctAnswer": "sister",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Father",
+          "correctAnswer": "Father",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "What is 'أم' in English?",
+          "correctAnswer": "Mother",
+          "options": [
+            "Father",
+            "Mother",
+            "Sister",
+            "Brother"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: My ___ is a man (parent)",
+          "correctAnswer": "father",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "A 'sister' is a girl in your family",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Family",
+          "correctAnswer": "Family",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put words in order: my, This, is, brother",
+          "correctAnswer": "This, is, my, brother",
+          "options": [
+            "my",
+            "This",
+            "is",
+            "brother"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Your mother's son is your:",
+          "correctAnswer": "Brother",
+          "options": [
+            "Father",
+            "Sister",
+            "Brother",
+            "Cousin"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Numbers 1-5 (Unit 4)",
+      "orderIndex": 8,
+      "content": "Numbers: one, two, three, four, five. Count: 1, 2, 3, 4, 5. How many?",
+      "objectives": "Learn numbers 1-5 in English",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What number is 'three'?",
+          "correctAnswer": "3",
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Five' means '٥'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Write the English word for ٢",
+          "correctAnswer": "Two",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "How many fingers on one hand?",
+          "correctAnswer": "Five",
+          "options": [
+            "Three",
+            "Four",
+            "Five",
+            "Six"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: ___ + 1 = 5 (write the number word)",
+          "correctAnswer": "four",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Three",
+          "correctAnswer": "Three",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "How do we say '٣' in English?",
+          "correctAnswer": "Three",
+          "options": [
+            "Two",
+            "Three",
+            "Four",
+            "Five"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: One, two, ___, four, five",
+          "correctAnswer": "three",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Five' comes after 'four'",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Five",
+          "correctAnswer": "Five",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put in order: three, one, four, two, five",
+          "correctAnswer": "one, two, three, four, five",
+          "options": [
+            "three",
+            "one",
+            "four",
+            "two",
+            "five"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "If you have two apples and add three more, how many apples do you have? (in English)",
+          "correctAnswer": "Five",
+          "options": [
+            "Three",
+            "Four",
+            "Five",
+            "Six"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Colors (Unit 5)",
+      "orderIndex": 9,
+      "content": "Colors: red, blue, green, yellow, black, white. What color is it? It is red.",
+      "objectives": "Learn basic colors in English",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What color is the sky?",
+          "correctAnswer": "Blue",
+          "options": [
+            "Red",
+            "Blue",
+            "Green",
+            "Yellow"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Red' means 'أحمر'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What is 'أخضر' in English?",
+          "correctAnswer": "Green",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: The sky is ___",
+          "correctAnswer": "blue",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Red",
+          "correctAnswer": "Red",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "What color is the sun?",
+          "correctAnswer": "Yellow",
+          "options": [
+            "Blue",
+            "Yellow",
+            "Green",
+            "Black"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: Grass is ___",
+          "correctAnswer": "green",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "Snow is black",
+          "correctAnswer": "False",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Blue",
+          "correctAnswer": "Blue",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: أحمر",
+          "correctAnswer": "Red",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Mixing red and yellow makes which color?",
+          "correctAnswer": "Orange",
+          "options": [
+            "Pink",
+            "Orange",
+            "Purple",
+            "Brown"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put colors of a traffic light from top to bottom: green, yellow, red",
+          "correctAnswer": "red, yellow, green",
+          "options": [
+            "green",
+            "yellow",
+            "red"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "My Body (Unit 6)",
+      "orderIndex": 10,
+      "content": "Body parts: head, eyes, nose, mouth, ears, hands, feet. I have two eyes.",
+      "objectives": "Learn body parts vocabulary",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What is 'رأس' in English?",
+          "correctAnswer": "Head",
+          "options": [
+            "Head",
+            "Hand",
+            "Foot",
+            "Eye"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "We have two eyes",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What is 'يد' in English?",
+          "correctAnswer": "Hand",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I see with my ___",
+          "correctAnswer": "eyes",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Head",
+          "correctAnswer": "Head",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "We see with our eyes",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I hear with my ___ (organ on the side of head)",
+          "correctAnswer": "ears",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Eyes",
+          "correctAnswer": "Eyes",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: قدم",
+          "correctAnswer": "Foot",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which body part do you use to walk?",
+          "correctAnswer": "Feet",
+          "options": [
+            "Hands",
+            "Feet",
+            "Eyes",
+            "Ears"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "How many fingers does a person normally have on two hands?",
+          "correctAnswer": "Ten",
+          "options": [
+            "Five",
+            "Eight",
+            "Ten",
+            "Twelve"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Animals (Unit 7)",
+      "orderIndex": 11,
+      "content": "Animals: cat, dog, bird, fish, rabbit. I like cats. It is a dog.",
+      "objectives": "Learn animal names in English",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What is 'قطة' in English?",
+          "correctAnswer": "Cat",
+          "options": [
+            "Cat",
+            "Dog",
+            "Bird",
+            "Fish"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Dog' means 'كلب'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What is 'سمكة' in English?",
+          "correctAnswer": "Fish",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: A ___ says woof! (pet)",
+          "correctAnswer": "dog",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Cat",
+          "correctAnswer": "Cat",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which animal says 'meow'?",
+          "correctAnswer": "Cat",
+          "options": [
+            "Dog",
+            "Cow",
+            "Cat",
+            "Bird"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "Fish live in water",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: A ___ gives us milk (large farm animal)",
+          "correctAnswer": "cow",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Dog",
+          "correctAnswer": "Dog",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: عصفور",
+          "correctAnswer": "Bird",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which animal can fly?",
+          "correctAnswer": "Bird",
+          "options": [
+            "Cow",
+            "Bird",
+            "Fish",
+            "Cat"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which is NOT a farm animal?",
+          "correctAnswer": "Lion",
+          "options": [
+            "Cow",
+            "Sheep",
+            "Lion",
+            "Chicken"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Food (Unit 8)",
+      "orderIndex": 12,
+      "content": "Food: apple, banana, bread, milk, water, juice. I like apples. I want milk.",
+      "objectives": "Learn food vocabulary",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What is 'تفاحة' in English?",
+          "correctAnswer": "Apple",
+          "options": [
+            "Apple",
+            "Banana",
+            "Bread",
+            "Milk"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Milk' means 'حليب'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "What is 'خبز' in English?",
+          "correctAnswer": "Bread",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I eat ___ for breakfast (yellow fruit)",
+          "correctAnswer": "banana",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Apple",
+          "correctAnswer": "Apple",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "What color is a banana?",
+          "correctAnswer": "Yellow",
+          "options": [
+            "Red",
+            "Yellow",
+            "Green",
+            "Blue"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "Bread is food we eat",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: I drink ___ in the morning (white liquid)",
+          "correctAnswer": "milk",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Bread",
+          "correctAnswer": "Bread",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: ماء",
+          "correctAnswer": "Water",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which is a fruit?",
+          "correctAnswer": "Apple",
+          "options": [
+            "Bread",
+            "Cheese",
+            "Apple",
+            "Rice"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Which food is healthiest for breakfast?",
+          "correctAnswer": "Eggs and bread",
+          "options": [
+            "Candy",
+            "Soda only",
+            "Eggs and bread",
+            "Ice cream"
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        }
+      ],
+      "imageUrls": []
+    },
+    {
+      "title": "Review (Unit 9)",
+      "orderIndex": 13,
+      "content": "Review all vocabulary: greetings, school, family, numbers, colors, body, animals, food.",
+      "objectives": "Review all learned vocabulary from Units 1-8",
+      "questions": [
+        {
+          "type": "MCQ",
+          "questionText": "What color is grass?",
+          "correctAnswer": "Green",
+          "options": [
+            "Red",
+            "Yellow",
+            "Green",
+            "Blue"
+          ],
+          "difficultyLevel": 1,
+          "subSkill": "recognition"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Brother' means 'أخ'",
+          "correctAnswer": "صح",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Count from 1 to 3 in English",
+          "correctAnswer": "One two three",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Milk",
+          "correctAnswer": "Milk",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "FILL_BLANK",
+          "questionText": "Complete: Three plus two equals ___",
+          "correctAnswer": "five",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "computation"
+        },
+        {
+          "type": "TRUE_FALSE",
+          "questionText": "'Father' is a male family member",
+          "correctAnswer": "True",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "comprehension"
+        },
+        {
+          "type": "ORDERING",
+          "questionText": "Put days in order: Tuesday, Sunday, Monday",
+          "correctAnswer": "Sunday, Monday, Tuesday",
+          "options": [
+            "Tuesday",
+            "Sunday",
+            "Monday"
+          ],
+          "difficultyLevel": 2,
+          "subSkill": "application"
+        },
+        {
+          "type": "PRONUNCIATION",
+          "questionText": "Say the word: Mother",
+          "correctAnswer": "Mother",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "pronunciation"
+        },
+        {
+          "type": "MCQ",
+          "questionText": "Best response to 'Hello, how are you?'",
+          "correctAnswer": "I am fine, thank you.",
+          "options": [
+            "Goodbye!",
+            "I am fine, thank you.",
+            "What is that?",
+            "No, thanks."
+          ],
+          "difficultyLevel": 3,
+          "subSkill": "application"
+        },
+        {
+          "type": "SHORT_ANSWER",
+          "questionText": "Translate: قطة",
+          "correctAnswer": "Cat",
+          "options": null,
+          "difficultyLevel": 1,
+          "subSkill": "production"
+        }
+      ],
+      "imageUrls": []
+    }
+  ],
+  "totalLessons": 9
+}
