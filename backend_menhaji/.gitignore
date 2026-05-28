@@ -1,0 +1,21 @@
+# Gradle build output
+build/
+bin/
+out/
+.gradle/
+
+# Packaged applications
+*.jar
+*.war
+*.nar
+
+# Spring Boot run scripts
+*.pid
+
+# Log files
+*.log
+logs/
+
+# Upload files (track folder but not contents)
+uploads/*
+!uploads/.gitkeep

@@ -1,0 +1,40 @@
+# ── macOS ────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ── IDE / Editor ─────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ── Claude Code internal ──────────────────────────────────────────────────────
+.claude/
+
+# ── Backend build artifacts (Gradle / Spring Boot) ───────────────────────────
+backend_menhaji/build/
+backend_menhaji/bin/
+backend_menhaji/.gradle/
+backend_menhaji/out/
+backend_menhaji/*.jar
+backend_menhaji/*.war
+
+# Root-level legacy build artifacts (pre-restructure)
+build/
+bin/
+.gradle/
+out/
+
+# ── Frontend build artifacts (Vite / Node) ───────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+
+# ── Secrets & environment ─────────────────────────────────────────────────────
+*.env
+.env
+application-prod.yaml
+application-local.yaml
