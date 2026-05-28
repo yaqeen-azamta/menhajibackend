@@ -17,7 +17,14 @@
       "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT id, dtype, username FROM users LIMIT 5;\")",
       "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT id, role, full_name, grade_level, total_points, current_streak FROM users WHERE id <= 5;\")",
       "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT id, role, full_name FROM users WHERE role='STUDENT';\")",
-      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e ' *)"
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e ' *)",
+      "Bash(ls /Applications/XAMPP/xamppfiles/htdocs/ 2>/dev/null && echo \"---\" && ls /Users/mac/Downloads/ 2>/dev/null | head -20)",
+      "Read(//Applications/XAMPP/xamppfiles/htdocs/**)",
+      "Bash(git -C /Applications/XAMPP/xamppfiles/htdocs/backend_menhaji log --oneline -5)",
+      "Bash(rm -rf \"/Applications/XAMPP/xamppfiles/htdocs/backend_menhaji/frontend/src/{api,assets,components\" && echo \"Removed\" || echo \"Failed\")"
+    ],
+    "additionalDirectories": [
+      "/Applications/XAMPP/xamppfiles/htdocs/backend_menhaji/frontend/src/{api,assets,components"
     ]
   }
 }
