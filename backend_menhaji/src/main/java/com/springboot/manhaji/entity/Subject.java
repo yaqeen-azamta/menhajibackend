@@ -24,6 +24,9 @@ public class Subject {
     @Column(nullable = false)
     private Integer gradeLevel;
 
+    @Column(name = "cover_image")
+    private String coverImage;
+
     @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
     private List<Lesson> lessons = new ArrayList<>();
 }

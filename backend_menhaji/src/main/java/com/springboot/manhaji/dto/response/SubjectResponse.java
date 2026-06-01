@@ -15,4 +15,5 @@ public class SubjectResponse {
     private Integer gradeLevel;
     private Integer totalLessons;
     private Integer completedLessons;
+    private String coverImage;
 }

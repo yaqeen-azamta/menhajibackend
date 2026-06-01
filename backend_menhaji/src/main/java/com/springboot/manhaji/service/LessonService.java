@@ -16,6 +16,7 @@ import com.springboot.manhaji.repository.ProgressRepository;
 import com.springboot.manhaji.repository.StudentRepository;
 import com.springboot.manhaji.repository.SubjectRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -25,6 +26,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class LessonService {
 
     private final SubjectRepository subjectRepository;
@@ -36,7 +38,9 @@ public class LessonService {
     // studentId here is students.id (internal PK) — callers translate from userId first
     public List<SubjectResponse> getSubjectsByGrade(Integer gradeLevel, Long studentId) {
         List<Subject> subjects = subjectRepository.findByGradeLevel(gradeLevel);
+        log.debug("[Subjects] gradeLevel={} → {} subjects found", gradeLevel, subjects.size());
         return subjects.stream().map(subject -> {
+            log.debug("[Subjects] id={}, name={}, cover_image={}", subject.getId(), subject.getName(), subject.getCoverImage());
             List<Lesson> lessons = lessonRepository.findBySubjectIdOrderByOrderIndexAsc(subject.getId());
             long completed = lessons.stream()
                     .filter(lesson -> {
@@ -51,6 +55,7 @@ public class LessonService {
                     .gradeLevel(subject.getGradeLevel())
                     .totalLessons(lessons.size())
                     .completedLessons((int) completed)
+                    .coverImage(subject.getCoverImage())
                     .build();
         }).toList();
     }

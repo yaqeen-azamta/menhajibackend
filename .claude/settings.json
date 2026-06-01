@@ -21,7 +21,16 @@
       "Bash(ls /Applications/XAMPP/xamppfiles/htdocs/ 2>/dev/null && echo \"---\" && ls /Users/mac/Downloads/ 2>/dev/null | head -20)",
       "Read(//Applications/XAMPP/xamppfiles/htdocs/**)",
       "Bash(git -C /Applications/XAMPP/xamppfiles/htdocs/backend_menhaji log --oneline -5)",
-      "Bash(rm -rf \"/Applications/XAMPP/xamppfiles/htdocs/backend_menhaji/frontend/src/{api,assets,components\" && echo \"Removed\" || echo \"Failed\")"
+      "Bash(rm -rf \"/Applications/XAMPP/xamppfiles/htdocs/backend_menhaji/frontend/src/{api,assets,components\" && echo \"Removed\" || echo \"Failed\")",
+      "Bash(mysql -u root menhaji -e \"SELECT id, name, grade_level, cover_image, book_name FROM subjects;\")",
+      "Bash(mysql -u root menhaji -e \"SELECT id, name, grade_level FROM subjects;\")",
+      "Bash(mysql -u root -p '' menhaji -e \"SHOW TABLES; SELECT * FROM subjects LIMIT 10;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT id, name, grade_level FROM subjects;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"DESCRIBE subjects;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"DESCRIBE books; SELECT * FROM books LIMIT 10;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT * FROM subjects; SELECT * FROM units LIMIT 5;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT * FROM books;\")",
+      "Bash(/Applications/XAMPP/xamppfiles/bin/mysql -u root menhaji -e \"SELECT book_id, subject, book_name, cover_image FROM books WHERE is_active=1 ORDER BY book_id;\")"
     ],
     "additionalDirectories": [
       "/Applications/XAMPP/xamppfiles/htdocs/backend_menhaji/frontend/src/{api,assets,components"

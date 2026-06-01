@@ -20,6 +20,10 @@ public class StaticResourceConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         String uploadPath = Paths.get(storageConfig.getUploadDir()).toAbsolutePath().normalize().toUri().toString();
+        // Spring requires the location to end with "/" to treat it as a directory.
+        if (!uploadPath.endsWith("/")) {
+            uploadPath = uploadPath + "/";
+        }
 
         registry.addResourceHandler("/uploads/**")
                 .addResourceLocations(uploadPath)
