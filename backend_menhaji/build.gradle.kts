@@ -35,6 +35,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     runtimeOnly("com.mysql:mysql-connector-j")
 
+    // Flyway — MySQL/MariaDB dialect support
+    implementation("org.flywaydb:flyway-mysql")
+
     // Validation
     implementation("org.springframework.boot:spring-boot-starter-validation")
 

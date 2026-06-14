@@ -30,7 +30,10 @@ public class Lesson {
     @Column
     private String audioUrl;
 
-    @Column(columnDefinition = "JSON")
+    @Column(length = 64)
+    private String audioTextHash;
+
+    @Column(columnDefinition = "LONGTEXT")
     private String imageUrls;
 
     @Column(columnDefinition = "TEXT")

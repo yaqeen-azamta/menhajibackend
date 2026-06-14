@@ -7,6 +7,7 @@ public enum QuestionType {
     FILL_BLANK,
     ORDERING,
     PRONUNCIATION,
-     IMAGE_MCQ,
-    TRACING
+    IMAGE_MCQ,
+    TRACING,
+    READING
 }

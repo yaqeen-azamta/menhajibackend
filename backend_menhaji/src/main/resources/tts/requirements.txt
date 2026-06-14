@@ -1,0 +1,8 @@
+# Dependencies for edge_tts_sidecar.py
+# Install once with:
+#   python -m pip install -r requirements.txt
+#
+# edge-tts version pinned to a known-good release. Update cautiously —
+# Microsoft has occasionally changed the underlying WebSocket protocol
+# and older versions of the lib break for a few days until a new release.
+edge-tts>=6.1.9

@@ -36,7 +36,7 @@ public class TracingAnswer {
      * Format: [{"x":45.5,"y":12.3,"t":0},{"x":46.1,"y":14.8,"t":50}, ...]
      * Coordinates are 0-100 normalized; t is milliseconds since stroke start.
      */
-    @Column(columnDefinition = "JSON")
+    @Column(columnDefinition = "LONGTEXT")
     private String drawingPointsJson;
 
     /** Accuracy (0-100) as reported by the Flutter client (CustomPainter heuristic). */

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.springboot.manhaji.config.QuizConfigProperties;
 import com.springboot.manhaji.dto.question.QuestionOption;
+import com.springboot.manhaji.dto.request.ReadingSubmitRequest;
 import com.springboot.manhaji.dto.request.SubmitAnswerRequest;
 import com.springboot.manhaji.dto.request.TracingSubmitRequest;
 import com.springboot.manhaji.dto.response.*;
@@ -47,6 +48,18 @@ public class QuizService {
     private final PronunciationScoringService pronunciationScoringService;
     private final Messages messages;
     private final QuizConfigProperties quizConfig;
+    private int getPointsByDifficulty(Integer difficulty) {
+    if (difficulty == null) return 5;
+
+    return switch (difficulty) {
+        case 1 -> 5;
+        case 2 -> 10;
+        case 3 -> 15;
+        case 4 -> 20;
+        case 5 -> 25;
+        default -> 5;
+    };
+}
 
     public QuizResponse getQuizByLesson(Long lessonId) {
         List<Quiz> quizzes = quizRepository.findByLessonId(lessonId);
@@ -241,6 +254,54 @@ public class QuizService {
     }
 
     @Transactional
+    public SubmitAnswerResponse submitReadingResult(
+            Long attemptId, ReadingSubmitRequest request, Long userId) {
+
+        Attempt attempt = attemptRepository.findById(attemptId)
+                .orElseThrow(() -> new ResourceNotFoundException("Attempt", attemptId));
+
+        if (!attempt.getStudent().getUser().getId().equals(userId)) {
+            throw new BadRequestException(messages.get("error.attempt.notYours"));
+        }
+        if (attempt.getStatus() != AttemptStatus.IN_PROGRESS) {
+            throw new BadRequestException(messages.get("error.attempt.alreadyCompleted"));
+        }
+
+        Question question = questionRepository.findById(request.getQuestionId())
+                .orElseThrow(() -> new ResourceNotFoundException("Question", request.getQuestionId()));
+
+        if (question.getType() != QuestionType.READING) {
+            throw new BadRequestException("Question is not a reading question");
+        }
+
+        boolean isCorrect = Boolean.TRUE.equals(request.getIsCorrect());
+        int accuracy = request.getAccuracy() != null ? request.getAccuracy() : 0;
+        int stars    = request.getStars()    != null ? request.getStars()    : 0;
+
+        String feedback = isCorrect
+                ? "قراءة ممتازة! دقة " + accuracy + "%"
+                : "استمر في التدريب! دقة " + accuracy + "%";
+
+        int pointsEarned = isCorrect ? quizConfig.getPointsPerCorrect() : 0;
+
+        StudentResponse response = new StudentResponse();
+        response.setAttempt(attempt);
+        response.setQuestion(question);
+        response.setIsCorrect(isCorrect);
+        response.setFeedback(feedback);
+        response.setEvaluatedText("accuracy=" + accuracy + "%,stars=" + stars);
+        responseRepository.save(response);
+
+        return SubmitAnswerResponse.builder()
+                .questionId(question.getId())
+                .isCorrect(isCorrect)
+                .feedback(feedback)
+                .correctAnswer("READING")
+                .pointsEarned(pointsEarned)
+                .build();
+    }
+
+    @Transactional
     public AttemptResponse completeAttempt(Long attemptId, Long userId) {
         Attempt attempt = attemptRepository.findById(attemptId)
                 .orElseThrow(() -> new ResourceNotFoundException("Attempt", attemptId));
@@ -264,7 +325,18 @@ public class QuizService {
         int totalQuestions = quiz.getQuestions().size();
         int correctAnswers = (int) dedupedResponses.stream().filter(r -> Boolean.TRUE.equals(r.getIsCorrect())).count();
         double score = totalQuestions > 0 ? (correctAnswers * 100.0) / totalQuestions : 0;
-        int pointsEarned = correctAnswers * quizConfig.getPointsPerCorrect();
+       int pointsEarned = 0;
+
+for (StudentResponse response : dedupedResponses) {
+    if (Boolean.TRUE.equals(response.getIsCorrect())) {
+
+        Integer difficulty =
+                response.getQuestion().getDifficultyLevel();
+
+        pointsEarned +=
+                getPointsByDifficulty(difficulty);
+    }
+}
 
         attempt.setStatus(AttemptStatus.GRADED);
         attempt.setScore(score);
@@ -337,6 +409,9 @@ public class QuizService {
         String correctAnswer = question.getCorrectAnswer().trim();
         String studentAnswer = (request.getAnswer() != null ? request.getAnswer() :
                                request.getSpokenText() != null ? request.getSpokenText() : "").trim();
+
+        // READING questions go through /reading endpoint — never via text evaluation
+        if (question.getType() == QuestionType.READING) return false;
 
         if (question.getType() == QuestionType.MCQ || question.getType() == QuestionType.TRUE_FALSE) {
             return correctAnswer.equalsIgnoreCase(studentAnswer);

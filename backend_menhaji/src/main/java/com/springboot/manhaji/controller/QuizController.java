@@ -1,5 +1,6 @@
 package com.springboot.manhaji.controller;
 
+import com.springboot.manhaji.dto.request.ReadingSubmitRequest;
 import com.springboot.manhaji.dto.request.SubmitAnswerRequest;
 import com.springboot.manhaji.dto.request.TracingSubmitRequest;
 import com.springboot.manhaji.dto.response.ApiResponse;
@@ -129,6 +130,17 @@ public class QuizController {
             @RequestParam(defaultValue = "1") int level) {
         Map<String, Object> hint = quizService.getHint(questionId, level);
         return ResponseEntity.ok(ApiResponse.success(hint));
+    }
+
+    // Submit a reading attempt — client forwards accuracy from /api/reading/assess
+    @PostMapping("/attempt/{attemptId}/reading")
+    public ResponseEntity<ApiResponse<SubmitAnswerResponse>> submitReading(
+            @PathVariable Long attemptId,
+            @Valid @RequestBody ReadingSubmitRequest request,
+            Authentication authentication) {
+        Long studentId = (Long) authentication.getPrincipal();
+        SubmitAnswerResponse response = quizService.submitReadingResult(attemptId, request, studentId);
+        return ResponseEntity.ok(ApiResponse.success(response));
     }
 
     // Complete the attempt and get final results

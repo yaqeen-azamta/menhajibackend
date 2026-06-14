@@ -19,4 +19,6 @@ public class StudentDashboardResponse {
     private Integer currentStreak;
     private Integer totalPoints;
     private List<SubjectResponse> subjects;
+    private int dailyGoal;
+    private RecommendedLessonResponse recommendedLesson;
 }

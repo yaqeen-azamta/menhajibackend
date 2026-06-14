@@ -149,9 +149,14 @@ public class TracingService {
         double clientAccuracy  = serverAccuracy;
         double finalAccuracy   = serverAccuracy;
         double requiredAccuracy = 0.0;
-        boolean isCorrect      = hasDrawing;
-        int score              = hasDrawing ? 100 : 0;
-        int stars              = hasDrawing ? 3 : 0;
+       boolean isCorrect = hasDrawing;
+int stars = hasDrawing ? 3 : 0;
+
+int score = hasDrawing
+        ? getPointsByDifficulty(question.getDifficultyLevel())
+        : 0;
+
+
 
         int attemptNumber = tracingAnswerRepository
                 .countByStudentIdAndQuestionId(studentId, request.getQuestionId()) + 1;
@@ -372,4 +377,19 @@ public class TracingService {
     private static double round1(double v) {
         return Math.round(v * 10.0) / 10.0;
     }
+   private int getPointsByDifficulty(Integer difficulty) {
+
+    if (difficulty == null) {
+        return 5;
+    }
+
+    return switch (difficulty) {
+        case 1 -> 5;
+        case 2 -> 10;
+        case 3 -> 15;
+        case 4 -> 20;
+        case 5 -> 25;
+        default -> 5;
+    };
+}
 }

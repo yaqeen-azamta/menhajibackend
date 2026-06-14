@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.springboot.manhaji.dto.response.LessonResponse;
 import com.springboot.manhaji.dto.response.LessonSummaryResponse;
+import com.springboot.manhaji.dto.response.RecommendedLessonResponse;
 import com.springboot.manhaji.dto.response.SubjectResponse;
 import com.springboot.manhaji.entity.Lesson;
 import com.springboot.manhaji.entity.Progress;
@@ -20,9 +21,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +41,7 @@ public class LessonService {
 
     // studentId here is students.id (internal PK) — callers translate from userId first
     public List<SubjectResponse> getSubjectsByGrade(Integer gradeLevel, Long studentId) {
+        Long realStudentId = resolveStudentId(studentId);
         List<Subject> subjects = subjectRepository.findByGradeLevel(gradeLevel);
         log.debug("[Subjects] gradeLevel={} → {} subjects found", gradeLevel, subjects.size());
         return subjects.stream().map(subject -> {
@@ -44,7 +49,9 @@ public class LessonService {
             List<Lesson> lessons = lessonRepository.findBySubjectIdOrderByOrderIndexAsc(subject.getId());
             long completed = lessons.stream()
                     .filter(lesson -> {
-                        Optional<Progress> p = progressRepository.findByStudentIdAndLessonId(studentId, lesson.getId());
+                       Optional<Progress> p = progressRepository.findByStudentIdAndLessonId(
+        realStudentId,
+        lesson.getId());
                         return p.isPresent() && (p.get().getCompletionStatus() == CompletionStatus.COMPLETED
                                 || p.get().getCompletionStatus() == CompletionStatus.MASTERED);
                     })
@@ -114,6 +121,80 @@ public class LessonService {
                 .subjectName(lesson.getSubject().getName())
                 .gradeLevel(lesson.getGradeLevel())
                 .totalQuestions(lesson.getQuestions().size())
+                .build();
+    }
+
+    /**
+     * Returns the recommended next lesson using a subject-balancing algorithm.
+     *
+     * Algorithm:
+     * 1. Load all student progress at once (one DB call).
+     * 2. For each subject, compute completionRate = completed / total.
+     * 3. Collect subjects that still have unfinished lessons.
+     * 4. Among those, prefer the one(s) with the lowest completionRate.
+     * 5. Shuffle tied subjects to avoid always recommending the same one.
+     * 6. Pick a random unfinished lesson from the chosen subject.
+     */
+    public RecommendedLessonResponse getRecommendedLesson(Integer gradeLevel, Long userId) {
+        Long studentId = resolveStudentId(userId);
+        List<Subject> subjects = subjectRepository.findByGradeLevel(gradeLevel);
+        if (subjects.isEmpty()) return null;
+
+        List<Progress> allProgress = progressRepository.findByStudentId(studentId);
+        Set<Long> completedIds = allProgress.stream()
+                .filter(p -> p.getCompletionStatus() == CompletionStatus.COMPLETED
+                          || p.getCompletionStatus() == CompletionStatus.MASTERED)
+                .map(p -> p.getLesson().getId())
+                .collect(Collectors.toSet());
+
+        record SubjectCandidate(Subject subject, double completionRate, List<Lesson> unfinished) {}
+
+        List<SubjectCandidate> candidates = new ArrayList<>();
+        for (Subject subject : subjects) {
+            List<Lesson> lessons = lessonRepository.findBySubjectIdOrderByOrderIndexAsc(subject.getId());
+            if (lessons.isEmpty()) continue;
+
+            List<Lesson> unfinished = lessons.stream()
+                    .filter(l -> !completedIds.contains(l.getId()))
+                    .toList();
+
+            if (!unfinished.isEmpty()) {
+                double rate = (double)(lessons.size() - unfinished.size()) / lessons.size();
+                candidates.add(new SubjectCandidate(subject, rate, unfinished));
+            }
+        }
+
+        if (candidates.isEmpty()) return null;
+
+        double minRate = candidates.stream()
+                .mapToDouble(SubjectCandidate::completionRate)
+                .min()
+                .orElse(0);
+
+        List<SubjectCandidate> leastProgressed = candidates.stream()
+                .filter(c -> Math.abs(c.completionRate() - minRate) < 0.001)
+                .collect(Collectors.toCollection(ArrayList::new));
+
+        Collections.shuffle(leastProgressed);
+        SubjectCandidate chosen = leastProgressed.get(0);
+
+        List<Lesson> unfinished = new ArrayList<>(chosen.unfinished());
+        Collections.shuffle(unfinished);
+        Lesson recommended = unfinished.get(0);
+
+        CompletionStatus status = allProgress.stream()
+                .filter(p -> p.getLesson().getId().equals(recommended.getId()))
+                .map(Progress::getCompletionStatus)
+                .findFirst()
+                .orElse(CompletionStatus.NOT_STARTED);
+
+        return RecommendedLessonResponse.builder()
+                .lessonId(recommended.getId())
+                .title(recommended.getTitle())
+                .subjectId(chosen.subject().getId())
+                .subjectName(chosen.subject().getName())
+                .orderIndex(recommended.getOrderIndex())
+                .completionStatus(status)
                 .build();
     }
 

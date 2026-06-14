@@ -23,53 +23,80 @@ public class ProgressService {
     private final AttemptRepository attemptRepository;
     private final SubjectRepository subjectRepository;
     private final LessonRepository lessonRepository;
+  @Transactional
+public Map<String, Object> completeLesson(Long userId, Long lessonId) {
 
-    @Transactional
-    public Map<String, Object> completeLesson(Long userId, Long lessonId) {
-        Student student = studentRepository.findByUserId(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
+    Student student = studentRepository.findByUserId(userId)
+            .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
 
-        Lesson lesson = lessonRepository.findById(lessonId)
-                .orElseThrow(() -> new ResourceNotFoundException("Lesson", lessonId));
+    System.out.println("===== COMPLETE LESSON =====");
+    System.out.println("userId = " + userId);
+    System.out.println("studentId = " + student.getId());
+    System.out.println("studentName = " + student.getStudentName());
+    System.out.println("lessonId = " + lessonId);
 
-        Progress progress = progressRepository
-                .findByStudentIdAndLessonId(student.getId(), lessonId)
-                .orElseGet(() -> {
-                    Progress p = new Progress();
-                    p.setStudent(student);
-                    p.setLesson(lesson);
-                    p.setMasteryLevel(0.0);
-                    p.setCompletionStatus(CompletionStatus.IN_PROGRESS);
-                    return p;
-                });
+    Lesson lesson = lessonRepository.findById(lessonId)
+            .orElseThrow(() -> new ResourceNotFoundException("Lesson", lessonId));
 
-        progress.setLastAccessedAt(LocalDateTime.now());
+    Progress progress = progressRepository
+            .findByStudentIdAndLessonId(student.getId(), lessonId)
+            .orElseGet(() -> {
+                Progress p = new Progress();
+                p.setStudent(student);
+                p.setLesson(lesson);
+                p.setMasteryLevel(0.0);
+                p.setCompletionStatus(CompletionStatus.IN_PROGRESS);
+                return p;
+            });
 
-        if (progress.getCompletionStatus() != CompletionStatus.COMPLETED
-                && progress.getCompletionStatus() != CompletionStatus.MASTERED) {
-            progress.setCompletionStatus(CompletionStatus.COMPLETED);
-            progress.setCompletedAt(LocalDateTime.now());
-            progress.setMasteryLevel(Math.max(progress.getMasteryLevel(), 100.0));
+    progress.setLastAccessedAt(LocalDateTime.now());
 
-            studentRepository.save(student);
-        }
+    if (progress.getCompletionStatus() != CompletionStatus.COMPLETED
+            && progress.getCompletionStatus() != CompletionStatus.MASTERED) {
 
-        progressRepository.save(progress);
+        progress.setCompletionStatus(CompletionStatus.COMPLETED);
+        progress.setCompletedAt(LocalDateTime.now());
+        progress.setMasteryLevel(100.0);
 
-        Map<String, Object> result = new LinkedHashMap<>();
-        result.put("lessonId", lessonId);
-        result.put("completionStatus", progress.getCompletionStatus().name());
-        result.put("masteryLevel", progress.getMasteryLevel());
-        result.put("totalPoints", student.getTotalPoints());
-        return result;
+        System.out.println("Lesson marked COMPLETED");
     }
+
+    progressRepository.save(progress);
+
+    System.out.println("==========================");
+
+    Map<String, Object> result = new LinkedHashMap<>();
+    result.put("lessonId", lessonId);
+    result.put("completionStatus", progress.getCompletionStatus().name());
+    result.put("masteryLevel", progress.getMasteryLevel());
+    result.put("totalPoints", student.getTotalPoints());
+
+    return result;
+}
 
     public ProgressSummaryResponse getProgressSummary(Long userId) {
         Student student = studentRepository.findByUserId(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
 
         List<Progress> allProgress = progressRepository.findByStudentId(student.getId());
+        System.out.println("========== SUMMARY ==========");
+System.out.println("userId = " + userId);
+System.out.println("studentId = " + student.getId());
+System.out.println("studentName = " + student.getStudentName());
+
+System.out.println("Progress Records = " + allProgress.size());
+
+for (Progress p : allProgress) {
+    System.out.println(
+            "lessonId=" + p.getLesson().getId()
+            + " status=" + p.getCompletionStatus()
+    );
+}
         List<Attempt> allAttempts = attemptRepository.findByStudentIdOrderByCreatedAtDesc(student.getId());
+        double totalPoints = student.getTotalPoints();
+      
+    System.out.println("calculatedPoints = " + totalPoints);
+    System.out.println("===========================");
 
         int totalLessonsInGrade = lessonRepository.findByGradeLevelOrderByOrderIndexAsc(student.getGradeLevel()).size();
         int completedLessons = (int) allProgress.stream()
@@ -100,18 +127,20 @@ public class ProgressService {
         List<RecentActivityResponse> recentActivity = buildRecentActivity(allProgress, gradedAttempts);
 
         return ProgressSummaryResponse.builder()
+                .dailyGoal(subjects.size())
                 .totalLessons(totalLessonsInGrade)
                 .completedLessons(completedLessons)
                 .masteredLessons(masteredLessons)
                 .inProgressLessons(inProgressLessons)
                 .overallMastery(Math.round(overallMastery * 10.0) / 10.0)
-                .totalPoints(student.getTotalPoints())
+                .totalPoints((int)Math.round(totalPoints))
                 .currentStreak(student.getCurrentStreak())
                 .totalQuizzesTaken(gradedAttempts.size())
                 .averageQuizScore(Math.round(averageQuizScore * 10.0) / 10.0)
                 .subjectProgress(subjectProgress)
                 .recentActivity(recentActivity)
                 .build();
+                
     }
 
     public List<LeaderboardEntryResponse> getLeaderboard(Long currentUserId, Integer gradeLevel) {

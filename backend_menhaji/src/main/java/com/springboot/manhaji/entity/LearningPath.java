@@ -17,7 +17,7 @@ public class LearningPath {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "JSON")
+    @Column(columnDefinition = "LONGTEXT")
     private String recommendations;
 
     @Column(nullable = false, updatable = false)

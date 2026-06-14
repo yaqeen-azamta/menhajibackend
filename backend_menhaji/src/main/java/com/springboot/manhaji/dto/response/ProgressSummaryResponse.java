@@ -7,6 +7,7 @@ import java.util.List;
 @Data
 @Builder
 public class ProgressSummaryResponse {
+    private int dailyGoal;
     private int totalLessons;
     private int completedLessons;
     private int masteredLessons;

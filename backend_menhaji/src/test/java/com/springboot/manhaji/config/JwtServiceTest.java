@@ -1,6 +1,5 @@
 package com.springboot.manhaji.config;
 
-import com.springboot.manhaji.entity.Student;
 import com.springboot.manhaji.entity.User;
 import com.springboot.manhaji.entity.enums.Role;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,7 +39,7 @@ class JwtServiceTest {
     @Test
     @DisplayName("audit S2 regression: signs + verifies a token using a Base64-decoded secret")
     void signsAndVerifiesWithBase64Secret() {
-        User user = new Student();
+        User user = new User();
         user.setId(42L);
         user.setEmail("test@example.com");
         user.setRole(Role.STUDENT);
@@ -57,7 +56,7 @@ class JwtServiceTest {
     @Test
     @DisplayName("audit S2 regression: tokens signed with a different key fail validation")
     void rejectsTokenSignedWithDifferentKey() {
-        User user = new Student();
+        User user = new User();
         user.setId(1L);
         user.setEmail("a@b.com");
         user.setRole(Role.STUDENT);

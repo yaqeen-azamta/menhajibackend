@@ -19,4 +19,5 @@ public class AuthResponse {
     private String phone;
     private Role role;
     private Integer gradeLevel;
+    private String avatarId;
 }

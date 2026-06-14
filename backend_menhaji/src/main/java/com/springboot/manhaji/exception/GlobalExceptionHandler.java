@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import com.springboot.manhaji.exception.SpeechServiceUnavailableException;
+import com.springboot.manhaji.exception.TooManyRequestsException;
 
 import java.util.stream.Collectors;
 
@@ -39,6 +41,19 @@ public class GlobalExceptionHandler {
                 .collect(Collectors.joining(", "));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ApiResponse.error(errors));
+    }
+
+    @ExceptionHandler(TooManyRequestsException.class)
+    public ResponseEntity<ApiResponse<Void>> handleTooManyRequests(TooManyRequestsException ex) {
+        return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
+                .body(ApiResponse.error(ex.getMessage()));
+    }
+
+    @ExceptionHandler(SpeechServiceUnavailableException.class)
+    public ResponseEntity<ApiResponse<Void>> handleSpeechUnavailable(SpeechServiceUnavailableException ex) {
+        log.warn("Speech service unavailable: {}", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
+                .body(ApiResponse.error("خدمة التعرف على الكلام غير متاحة مؤقتاً، يرجى المحاولة مرة أخرى"));
     }
 
     @ExceptionHandler(Exception.class)

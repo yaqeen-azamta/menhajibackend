@@ -39,11 +39,14 @@ public class SecurityConfig {
 
         .requestMatchers("/uploads/audio/**").authenticated()
 
+        // ✅ ADAPTIVE QUIZ — authenticated students only
+        .requestMatchers("/api/quiz/adaptive/**").authenticated()
+
         // ✅ QUESTIONS
         .requestMatchers("/api/questions/**").permitAll()
 
-        // ✅ SAVE STUDENT ANSWERS
-        .requestMatchers("/api/student-answers/**").permitAll()
+        // Student answers require auth — the endpoint reads the student id from the JWT.
+        .requestMatchers("/api/student-answers/**").authenticated()
 
         // ✅ TRACING – GET endpoints are public; POST /submit requires auth
         .requestMatchers(org.springframework.http.HttpMethod.GET,  "/api/tracing/**").permitAll()

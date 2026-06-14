@@ -110,7 +110,12 @@ public class AuthService {
                     messages.get("error.auth.invalidRole", request.getRole().name()));
         }
 
-        return buildAuthResponse(savedUser, fullName, gradeLevel);
+       return buildAuthResponse(
+        savedUser,
+        fullName,
+        gradeLevel,
+        request.getAvatarId()
+);
     }
 
     @Transactional
@@ -175,6 +180,7 @@ public class AuthService {
 
         String fullName = null;
         Integer gradeLevel = null;
+        String avatarId = null;
 
         switch (user.getRole()) {
             case STUDENT -> {
@@ -182,6 +188,7 @@ public class AuthService {
                 if (s != null) {
                     fullName = s.getStudentName();
                     gradeLevel = s.getGradeLevel();
+                     avatarId = s.getAvatarId();
                 }
             }
             case TEACHER ->
@@ -196,21 +203,27 @@ public class AuthService {
             default -> { /* SCHOOL or other roles have no profile entity */ }
         }
 
-        return buildAuthResponse(user, fullName, gradeLevel);
+        return buildAuthResponse(user, fullName, gradeLevel, avatarId);
     }
 
     // ── helpers ──────────────────────────────────────────────────────────────
 
-    private AuthResponse buildAuthResponse(User user, String fullName, Integer gradeLevel) {
-        return AuthResponse.builder()
-                .accessToken(jwtService.generateAccessToken(user))
-                .refreshToken(jwtService.generateRefreshToken(user))
-                .userId(user.getId())
-                .fullName(fullName)
-                .email(user.getEmail())
-                .phone(user.getPhone())
-                .role(user.getRole())
-                .gradeLevel(gradeLevel)
-                .build();
-    }
+   private AuthResponse buildAuthResponse(
+        User user,
+        String fullName,
+        Integer gradeLevel,
+        String avatarId) {
+
+    return AuthResponse.builder()
+            .accessToken(jwtService.generateAccessToken(user))
+            .refreshToken(jwtService.generateRefreshToken(user))
+            .userId(user.getId())
+            .fullName(fullName)
+            .email(user.getEmail())
+            .phone(user.getPhone())
+            .role(user.getRole())
+            .gradeLevel(gradeLevel)
+            .avatarId(avatarId)
+            .build();
+}
 }

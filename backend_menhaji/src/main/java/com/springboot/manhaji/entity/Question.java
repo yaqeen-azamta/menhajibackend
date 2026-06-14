@@ -30,9 +30,8 @@ public class Question {
     @Column(nullable = false)
     private String correctAnswer;
 
-    // JSON STRING
-    @Lob
-    @Column(columnDefinition = "JSON")
+    // JSON STRING — stored as LONGTEXT (MariaDB/MySQL 5.5 compatible)
+    @Column(columnDefinition = "LONGTEXT")
     private String options;
 
     @Column(nullable = false)
@@ -47,6 +46,9 @@ public class Question {
 
     @Column(length = 512)
     private String audioUrl;
+
+    @Column(length = 64)
+    private String audioTextHash;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lesson_id", nullable = false)
