@@ -23,6 +23,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -41,8 +42,11 @@ public class LessonService {
 
     // studentId here is students.id (internal PK) — callers translate from userId first
     public List<SubjectResponse> getSubjectsByGrade(Integer gradeLevel, Long studentId) {
-        Long realStudentId = resolveStudentId(studentId);
-        List<Subject> subjects = subjectRepository.findByGradeLevel(gradeLevel);
+Student student = studentRepository.findById(studentId)
+        .orElseThrow(() ->
+                new ResourceNotFoundException("Student", studentId));
+
+Long realStudentId = student.getId();        List<Subject> subjects = subjectRepository.findByGradeLevel(gradeLevel);
         log.debug("[Subjects] gradeLevel={} → {} subjects found", gradeLevel, subjects.size());
         return subjects.stream().map(subject -> {
             log.debug("[Subjects] id={}, name={}, cover_image={}", subject.getId(), subject.getName(), subject.getCoverImage());
@@ -67,9 +71,7 @@ public class LessonService {
         }).toList();
     }
 
-    // userId is users.id from JWT; translated to students.id internally
-    public List<LessonSummaryResponse> getLessonsBySubject(Long subjectId, Long userId) {
-        Long studentId = resolveStudentId(userId);
+    public List<LessonSummaryResponse> getLessonsBySubject(Long subjectId, Long studentId) {
         List<Lesson> lessons = lessonRepository.findBySubjectIdOrderByOrderIndexAsc(subjectId);
         return lessons.stream().map(lesson -> {
             Optional<Progress> progress = progressRepository.findByStudentIdAndLessonId(studentId, lesson.getId());
@@ -84,8 +86,7 @@ public class LessonService {
         }).toList();
     }
 
-    public LessonResponse getLessonDetail(Long lessonId, Long userId) {
-        Long studentId = resolveStudentId(userId);
+    public LessonResponse getLessonDetail(Long lessonId, Long studentId) {
         Lesson lesson = lessonRepository.findById(lessonId)
                 .orElseThrow(() -> new ResourceNotFoundException("Lesson", lessonId));
 
@@ -128,22 +129,41 @@ public class LessonService {
      * Returns the recommended next lesson using a subject-balancing algorithm.
      *
      * Algorithm:
-     * 1. Load all student progress at once (one DB call).
+     * 1. Load all student progress from DB (one query — no in-memory state).
      * 2. For each subject, compute completionRate = completed / total.
      * 3. Collect subjects that still have unfinished lessons.
-     * 4. Among those, prefer the one(s) with the lowest completionRate.
-     * 5. Shuffle tied subjects to avoid always recommending the same one.
-     * 6. Pick a random unfinished lesson from the chosen subject.
+     * 4. Pick the subject with the lowest completionRate; ties broken by lowest subject ID.
+     * 5. Within that subject, prefer a lesson already IN_PROGRESS; otherwise pick
+     *    the first NOT_STARTED lesson by orderIndex.
+     *
+     * Both selection steps are fully deterministic so the result only changes
+     * when persisted progress data changes.
      */
-    public RecommendedLessonResponse getRecommendedLesson(Integer gradeLevel, Long userId) {
-        Long studentId = resolveStudentId(userId);
+    public RecommendedLessonResponse getRecommendedLesson(Integer gradeLevel, Long studentId) {
         List<Subject> subjects = subjectRepository.findByGradeLevel(gradeLevel);
         if (subjects.isEmpty()) return null;
 
         List<Progress> allProgress = progressRepository.findByStudentId(studentId);
+
+        long completedCount = allProgress.stream()
+                .filter(p -> p.getCompletionStatus() == CompletionStatus.COMPLETED
+                          || p.getCompletionStatus() == CompletionStatus.MASTERED)
+                .count();
+        long inProgressCount = allProgress.stream()
+                .filter(p -> p.getCompletionStatus() == CompletionStatus.IN_PROGRESS)
+                .count();
+
+        log.info("[Recommendation] studentId={} completedLessons={} inProgressLessons={} recommendedLesson=pending — begin calculation",
+                studentId, completedCount, inProgressCount);
+
         Set<Long> completedIds = allProgress.stream()
                 .filter(p -> p.getCompletionStatus() == CompletionStatus.COMPLETED
                           || p.getCompletionStatus() == CompletionStatus.MASTERED)
+                .map(p -> p.getLesson().getId())
+                .collect(Collectors.toSet());
+
+        Set<Long> inProgressIds = allProgress.stream()
+                .filter(p -> p.getCompletionStatus() == CompletionStatus.IN_PROGRESS)
                 .map(p -> p.getLesson().getId())
                 .collect(Collectors.toSet());
 
@@ -171,22 +191,29 @@ public class LessonService {
                 .min()
                 .orElse(0);
 
-        List<SubjectCandidate> leastProgressed = candidates.stream()
+        // Deterministic tie-breaking: lowest subject ID wins — no random shuffle
+        SubjectCandidate chosen = candidates.stream()
                 .filter(c -> Math.abs(c.completionRate() - minRate) < 0.001)
-                .collect(Collectors.toCollection(ArrayList::new));
+                .min(Comparator.comparingLong(c -> c.subject().getId()))
+                .orElseThrow();
 
-        Collections.shuffle(leastProgressed);
-        SubjectCandidate chosen = leastProgressed.get(0);
-
-        List<Lesson> unfinished = new ArrayList<>(chosen.unfinished());
-        Collections.shuffle(unfinished);
-        Lesson recommended = unfinished.get(0);
+        // Prefer a lesson already IN_PROGRESS; otherwise take the first by orderIndex
+        // (query is already sorted by orderIndex, so unfinished list is ordered)
+        List<Lesson> unfinished = chosen.unfinished();
+        Lesson recommended = unfinished.stream()
+                .filter(l -> inProgressIds.contains(l.getId()))
+                .findFirst()
+                .orElse(unfinished.get(0));
 
         CompletionStatus status = allProgress.stream()
                 .filter(p -> p.getLesson().getId().equals(recommended.getId()))
                 .map(Progress::getCompletionStatus)
                 .findFirst()
                 .orElse(CompletionStatus.NOT_STARTED);
+
+        log.info("[Recommendation] studentId={} recommendedLesson=lessonId={} title='{}' subjectId={} status={}",
+                studentId, recommended.getId(), recommended.getTitle(),
+                chosen.subject().getId(), status);
 
         return RecommendedLessonResponse.builder()
                 .lessonId(recommended.getId())
@@ -196,12 +223,6 @@ public class LessonService {
                 .orderIndex(recommended.getOrderIndex())
                 .completionStatus(status)
                 .build();
-    }
-
-    private Long resolveStudentId(Long userId) {
-        return studentRepository.findByUserId(userId)
-                .map(Student::getId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
     }
 
     private List<String> parseImageUrls(String imageUrlsJson) {

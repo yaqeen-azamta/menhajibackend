@@ -2,9 +2,7 @@ package com.springboot.manhaji.repository;
 
 import com.springboot.manhaji.entity.AdaptiveQuizAttempt;
 import com.springboot.manhaji.entity.enums.AttemptStatus;
-import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -23,11 +21,10 @@ public interface AdaptiveQuizAttemptRepository extends JpaRepository<AdaptiveQui
     List<AdaptiveQuizAttempt> findByStudentIdAndLessonId(Long studentId, Long lessonId);
 
     /**
-     * Fetch attempt with a row-level write lock.
-     * Used by hint rate-limiting to make the check-and-increment atomic
-     * across concurrent requests.
+     * Fetch attempt with a row-level write lock using a native SQL query.
+     * MariaDB supports {@code FOR UPDATE} but not the JPQL-generated
+     * {@code FOR UPDATE OF alias} syntax that Hibernate 6 emits with @Lock.
      */
-    @Lock(LockModeType.PESSIMISTIC_WRITE)
-    @Query("SELECT a FROM AdaptiveQuizAttempt a WHERE a.id = :id")
+    @Query(value = "SELECT * FROM adaptive_quiz_attempts WHERE id = :id FOR UPDATE", nativeQuery = true)
     Optional<AdaptiveQuizAttempt> findByIdForUpdate(@Param("id") Long id);
 }

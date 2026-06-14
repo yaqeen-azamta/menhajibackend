@@ -7,6 +7,7 @@ import com.springboot.manhaji.entity.enums.CompletionStatus;
 import com.springboot.manhaji.exception.ResourceNotFoundException;
 import com.springboot.manhaji.repository.*;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ProgressService {
 
     private final StudentRepository studentRepository;
@@ -23,80 +25,66 @@ public class ProgressService {
     private final AttemptRepository attemptRepository;
     private final SubjectRepository subjectRepository;
     private final LessonRepository lessonRepository;
-  @Transactional
-public Map<String, Object> completeLesson(Long userId, Long lessonId) {
+    /**
+     * Marks a lesson complete for the given student.
+     *
+     * @param studentId already-resolved students.id (NOT users.id).
+     *                  Callers (ProgressController) are responsible for parent→child resolution.
+     */
+    @Transactional
+    public Map<String, Object> completeLesson(Long studentId, Long lessonId) {
 
-    Student student = studentRepository.findByUserId(userId)
-            .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student", studentId));
 
-    System.out.println("===== COMPLETE LESSON =====");
-    System.out.println("userId = " + userId);
-    System.out.println("studentId = " + student.getId());
-    System.out.println("studentName = " + student.getStudentName());
-    System.out.println("lessonId = " + lessonId);
+        log.info("completeLesson: student.id={}, student.name={}, lesson.id={}",
+                student.getId(), student.getStudentName(), lessonId);
 
-    Lesson lesson = lessonRepository.findById(lessonId)
-            .orElseThrow(() -> new ResourceNotFoundException("Lesson", lessonId));
+        Lesson lesson = lessonRepository.findById(lessonId)
+                .orElseThrow(() -> new ResourceNotFoundException("Lesson", lessonId));
 
-    Progress progress = progressRepository
-            .findByStudentIdAndLessonId(student.getId(), lessonId)
-            .orElseGet(() -> {
-                Progress p = new Progress();
-                p.setStudent(student);
-                p.setLesson(lesson);
-                p.setMasteryLevel(0.0);
-                p.setCompletionStatus(CompletionStatus.IN_PROGRESS);
-                return p;
-            });
+        Progress progress = progressRepository
+                .findByStudentIdAndLessonId(student.getId(), lessonId)
+                .orElseGet(() -> {
+                    Progress p = new Progress();
+                    p.setStudent(student);
+                    p.setLesson(lesson);
+                    p.setMasteryLevel(0.0);
+                    p.setCompletionStatus(CompletionStatus.IN_PROGRESS);
+                    return p;
+                });
 
-    progress.setLastAccessedAt(LocalDateTime.now());
+        progress.setLastAccessedAt(LocalDateTime.now());
 
-    if (progress.getCompletionStatus() != CompletionStatus.COMPLETED
-            && progress.getCompletionStatus() != CompletionStatus.MASTERED) {
+        if (progress.getCompletionStatus() != CompletionStatus.COMPLETED
+                && progress.getCompletionStatus() != CompletionStatus.MASTERED) {
+            progress.setCompletionStatus(CompletionStatus.COMPLETED);
+            progress.setCompletedAt(LocalDateTime.now());
+            progress.setMasteryLevel(100.0);
+            log.info("completeLesson: lesson {} marked COMPLETED for student.id={}", lessonId, student.getId());
+        }
 
-        progress.setCompletionStatus(CompletionStatus.COMPLETED);
-        progress.setCompletedAt(LocalDateTime.now());
-        progress.setMasteryLevel(100.0);
+        progressRepository.save(progress);
 
-        System.out.println("Lesson marked COMPLETED");
+        Map<String, Object> result = new LinkedHashMap<>();
+        result.put("lessonId", lessonId);
+        result.put("completionStatus", progress.getCompletionStatus().name());
+        result.put("masteryLevel", progress.getMasteryLevel());
+        result.put("totalPoints", student.getTotalPoints());
+
+        return result;
     }
 
-    progressRepository.save(progress);
-
-    System.out.println("==========================");
-
-    Map<String, Object> result = new LinkedHashMap<>();
-    result.put("lessonId", lessonId);
-    result.put("completionStatus", progress.getCompletionStatus().name());
-    result.put("masteryLevel", progress.getMasteryLevel());
-    result.put("totalPoints", student.getTotalPoints());
-
-    return result;
-}
-
-    public ProgressSummaryResponse getProgressSummary(Long userId) {
-        Student student = studentRepository.findByUserId(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
+    public ProgressSummaryResponse getProgressSummary(Long studentId) {
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student", studentId));
 
         List<Progress> allProgress = progressRepository.findByStudentId(student.getId());
-        System.out.println("========== SUMMARY ==========");
-System.out.println("userId = " + userId);
-System.out.println("studentId = " + student.getId());
-System.out.println("studentName = " + student.getStudentName());
+        log.debug("getProgressSummary: student.id={}, name={}, progressRecords={}",
+                student.getId(), student.getStudentName(), allProgress.size());
 
-System.out.println("Progress Records = " + allProgress.size());
-
-for (Progress p : allProgress) {
-    System.out.println(
-            "lessonId=" + p.getLesson().getId()
-            + " status=" + p.getCompletionStatus()
-    );
-}
         List<Attempt> allAttempts = attemptRepository.findByStudentIdOrderByCreatedAtDesc(student.getId());
         double totalPoints = student.getTotalPoints();
-      
-    System.out.println("calculatedPoints = " + totalPoints);
-    System.out.println("===========================");
 
         int totalLessonsInGrade = lessonRepository.findByGradeLevelOrderByOrderIndexAsc(student.getGradeLevel()).size();
         int completedLessons = (int) allProgress.stream()

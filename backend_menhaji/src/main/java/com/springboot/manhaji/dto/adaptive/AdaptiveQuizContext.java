@@ -27,4 +27,17 @@ public class AdaptiveQuizContext {
 
     /** Sub-skills where accuracy >= threshold → 40% for review. */
     private List<SkillSummary> strongSkills;
+
+    /**
+     * Question texts from the lesson's DB question bank.
+     * Sent to Gemini as an explicit forbidden list so generated questions
+     * never duplicate existing ones.
+     */
+    private List<String> existingQuestions;
+
+    /**
+     * Question texts from all previous SUBMITTED adaptive attempts for this
+     * student + lesson. Prevents the same question appearing across sessions.
+     */
+    private List<String> previousAttemptQuestions;
 }

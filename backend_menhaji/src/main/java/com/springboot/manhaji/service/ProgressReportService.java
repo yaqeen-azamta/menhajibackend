@@ -43,9 +43,9 @@ public class ProgressReportService {
     private final ProgressMetrics metrics;
 
     @Transactional
-    public ProgressReportResponse generateReport(Long userId) {
-        Student student = studentRepository.findByUserId(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
+    public ProgressReportResponse generateReport(Long studentId) {
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student", studentId));
 
         String performanceData = buildPerformanceData(student);
 
@@ -82,10 +82,11 @@ public class ProgressReportService {
         return toResponse(report);
     }
 
-    public List<ProgressReportResponse> getReports(Long userId) {
-        Student student = studentRepository.findByUserId(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
-        return reportRepository.findByStudentIdOrderByGeneratedAtDesc(student.getId())
+    public List<ProgressReportResponse> getReports(Long studentId) {
+        if (!studentRepository.existsById(studentId)) {
+            throw new ResourceNotFoundException("Student", studentId);
+        }
+        return reportRepository.findByStudentIdOrderByGeneratedAtDesc(studentId)
                 .stream()
                 .map(this::toResponse)
                 .toList();

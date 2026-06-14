@@ -14,6 +14,9 @@ public class AdaptiveAnswerFeedback {
     private String  studentAnswer;
     private String  correctAnswer;
     private boolean correct;
-    private String  feedback;       // AI-generated explanation or default message
+    private String  feedback;       // correctness verdict
     private String  subSkill;
+
+    /** AI-generated educational explanation (null until /explanation endpoint is called). */
+    private String explanation;
 }

@@ -12,10 +12,16 @@ import com.springboot.manhaji.exception.BadRequestException;
 import com.springboot.manhaji.exception.ResourceNotFoundException;
 import com.springboot.manhaji.exception.TooManyRequestsException;
 import com.springboot.manhaji.exception.UnauthorizedException;
-import com.springboot.manhaji.repository.*;
+import com.springboot.manhaji.repository.AdaptiveQuizAttemptRepository;
+import com.springboot.manhaji.repository.AdaptiveResponseRepository;
+import com.springboot.manhaji.repository.LessonRepository;
+import com.springboot.manhaji.repository.QuestionRepository;
+import com.springboot.manhaji.repository.StudentRepository;
+import com.springboot.manhaji.repository.StudentSkillProfileRepository;
 import com.springboot.manhaji.service.ai.GeminiService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,6 +46,7 @@ public class AdaptiveQuizService {
     private final StudentRepository             studentRepository;
     private final LessonRepository              lessonRepository;
     private final QuestionRepository            questionRepository;
+    private final StudentService                studentService;
     private final ObjectMapper                  objectMapper;
     private final GeminiService                 geminiService;
     private final QuizConfigProperties          quizConfig;
@@ -48,8 +55,8 @@ public class AdaptiveQuizService {
     // Generate quiz
     // -----------------------------------------------------------------------
 
-    public AdaptiveQuizPayload generateAdaptiveQuiz(Long lessonId, Long userId) {
-        Student student = resolveStudent(userId);
+    public AdaptiveQuizPayload generateAdaptiveQuiz(Long lessonId, Authentication authentication, Long childStudentId) {
+        Student student = studentService.resolveStudent(authentication, childStudentId);
         Lesson  lesson  = resolveLesson(lessonId);
 
         // Resume an in-progress attempt if one already exists (read-only DB touch, no transaction)
@@ -75,6 +82,25 @@ public class AdaptiveQuizService {
 
         int questionCount = quizConfig.getAdaptiveQuestionCount();
 
+        // ── Load existing questions for duplicate prevention ───────────────────
+        List<String> lessonQuestions = questionRepository.findByLessonId(lesson.getId()).stream()
+                .map(Question::getQuestionText)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        List<String> previousAttemptQuestions = attemptRepository
+                .findByStudentIdAndLessonId(student.getId(), lessonId).stream()
+                .filter(a -> a.getStatus() == AttemptStatus.SUBMITTED)
+                .flatMap(a -> parseGeneratedQuestions(a.getGeneratedQuestionsJson()).stream())
+                .map(GeneratedQuestion::getQuestionText)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+
+        log.info("[ADAPTIVE] Generating quiz: student={} lesson={} | lessonDBQuestions={} | prevAttemptQuestions={} | targetDifficulty={} | target={}",
+                student.getId(), lessonId,
+                lessonQuestions.size(), previousAttemptQuestions.size(),
+                targetDifficulty, questionCount);
+
         AdaptiveQuizContext context = AdaptiveQuizContext.builder()
                 .lessonTitle(lesson.getTitle())
                 .subjectName(lesson.getSubject() != null ? lesson.getSubject().getName() : "")
@@ -84,17 +110,15 @@ public class AdaptiveQuizService {
                 .questionCount(questionCount)
                 .weakSkills(weakSkills)
                 .strongSkills(strongSkills)
+                .existingQuestions(lessonQuestions)
+                .previousAttemptQuestions(previousAttemptQuestions)
                 .build();
 
-        // Gemini call happens OUTSIDE any transaction to avoid holding a DB connection
-        // for the full 30-second HTTP timeout.
+        // Gemini call (with internal retry + duplicate filtering) outside any transaction.
         List<GeneratedQuestion> questions = geminiService.generateAdaptiveQuestions(context);
 
-        // Retry once if Gemini returned nothing on the first attempt
-        if (questions.isEmpty()) {
-            log.warn("Gemini returned no questions for lesson {} (attempt 1/2), retrying...", lessonId);
-            questions = geminiService.generateAdaptiveQuestions(context);
-        }
+        log.info("[ADAPTIVE] Gemini returned {} unique questions for lesson {} (requested {})",
+                questions.size(), lessonId, questionCount);
 
         String source;
         if (!questions.isEmpty()) {
@@ -159,13 +183,10 @@ public class AdaptiveQuizService {
     @Transactional
     public AdaptiveQuizResult submitAdaptiveQuiz(Long attemptId,
                                                   AdaptiveSubmitRequest request,
-                                                  Long userId) {
+                                                  Authentication authentication) {
         AdaptiveQuizAttempt attempt = resolveAttempt(attemptId);
-        Student student = resolveStudent(userId);
+        Student student = verifyAndGetStudent(authentication, attempt);
 
-        if (!attempt.getStudent().getId().equals(student.getId())) {
-            throw new UnauthorizedException("هذا الاختبار لا يخصك");
-        }
         if (attempt.getStatus() == AttemptStatus.SUBMITTED) {
             throw new BadRequestException("تم تسليم هذا الاختبار مسبقاً");
         }
@@ -192,6 +213,7 @@ public class AdaptiveQuizService {
                 .collect(Collectors.toMap(AdaptiveAnswerItem::getQuestionIndex, a -> a, (a, b) -> a));
 
         int correctCount = 0;
+        int pointsEarned = 0;
         List<AdaptiveAnswerFeedback> feedbackList = new ArrayList<>();
 
         for (int i = 0; i < generatedQuestions.size(); i++) {
@@ -201,7 +223,10 @@ public class AdaptiveQuizService {
             String studentAnswer = resolveStudentAnswer(answerItem);
             boolean isCorrect = evaluateAnswer(gq, studentAnswer);
 
-            if (isCorrect) correctCount++;
+            if (isCorrect) {
+                correctCount++;
+                pointsEarned += getPointsByDifficulty(gq.getDifficultyLevel());
+            }
 
             // Update skill profile
             updateSkillProfile(student, attempt.getLesson(), gq.getSubSkill(), isCorrect);
@@ -239,8 +264,7 @@ public class AdaptiveQuizService {
         int totalQ = generatedQuestions.size();
         double score = totalQ > 0 ? (correctCount * 100.0) / totalQ : 0.0;
 
-        // Award points
-        int pointsEarned = correctCount * quizConfig.getPointsPerCorrect();
+        // Award points (already summed by difficulty in the grading loop above)
         student.setTotalPoints((student.getTotalPoints() == null ? 0 : student.getTotalPoints()) + pointsEarned);
         studentRepository.save(student);
 
@@ -287,16 +311,14 @@ public class AdaptiveQuizService {
     public Map<String, Object> getHintForAdaptiveQuestion(Long attemptId,
                                                            int questionIndex,
                                                            int level,
-                                                           Long userId) {
+                                                           Authentication authentication) {
         // Acquire row-level write lock — makes check-then-increment atomic.
         AdaptiveQuizAttempt attempt = attemptRepository.findByIdForUpdate(attemptId)
                 .orElseThrow(() -> new ResourceNotFoundException("AdaptiveQuizAttempt", attemptId));
 
         // ── ownership & lifecycle guards ──────────────────────────────────────
-        Student student = resolveStudent(userId);
-        if (!attempt.getStudent().getId().equals(student.getId())) {
-            throw new UnauthorizedException("هذا الاختبار لا يخصك");
-        }
+        verifyAndGetStudent(authentication, attempt);
+
         if (attempt.getStatus() == AttemptStatus.SUBMITTED) {
             throw new BadRequestException("لا يمكن طلب تلميح بعد تسليم الاختبار");
         }
@@ -328,8 +350,15 @@ public class AdaptiveQuizService {
         // ── all checks passed — call Gemini ───────────────────────────────────
         int clampedLevel = Math.max(1, Math.min(level, quizConfig.getMaxHintLevel()));
         GeneratedQuestion gq = questions.get(questionIndex);
+
+        log.info("[HINT] AdaptiveQuizService.getHint — attemptId={} questionIndex={} questionText=\"{}\" requestedLevel={} clampedLevel={} hintsUsedForQuestion={} totalHintsUsed={}",
+                attemptId, questionIndex, gq.getQuestionText(), level, clampedLevel, usedForQuestion, attempt.getTotalHintsUsed());
+
         String hint = geminiService.generateHint(
                 gq.getQuestionText(), gq.getCorrectAnswer(), clampedLevel, "ar");
+
+        log.info("[HINT] AdaptiveQuizService.getHint — attemptId={} questionIndex={} level={} hintText=\"{}\"",
+                attemptId, questionIndex, clampedLevel, hint);
 
         // ── persist incremented counters ──────────────────────────────────────
         usageMap.put(key, usedForQuestion + 1);
@@ -363,12 +392,60 @@ public class AdaptiveQuizService {
     }
 
     // -----------------------------------------------------------------------
+    // Explanation for a submitted answer (Part 5)
+    // -----------------------------------------------------------------------
+
+    @Transactional(readOnly = true)
+    public Map<String, Object> getAnswerExplanation(Long attemptId, int questionIndex,
+                                                     Authentication authentication) {
+        AdaptiveQuizAttempt attempt = resolveAttempt(attemptId);
+        verifyAndGetStudent(authentication, attempt);
+
+        if (attempt.getStatus() != AttemptStatus.SUBMITTED) {
+            throw new BadRequestException("الشرح متاح فقط بعد تسليم الاختبار");
+        }
+
+        List<GeneratedQuestion> questions = parseGeneratedQuestions(attempt.getGeneratedQuestionsJson());
+        if (questionIndex < 0 || questionIndex >= questions.size()) {
+            throw new BadRequestException("رقم السؤال غير صحيح");
+        }
+
+        GeneratedQuestion gq = questions.get(questionIndex);
+        AdaptiveResponse response = responseRepository
+                .findByAttemptIdAndQuestionIndex(attemptId, questionIndex)
+                .orElseThrow(() -> new BadRequestException("لم يتم الإجابة على هذا السؤال بعد"));
+
+        String explanation = geminiService.generateAnswerExplanation(
+                gq.getQuestionText(),
+                response.getStudentAnswer(),
+                gq.getCorrectAnswer(),
+                Boolean.TRUE.equals(response.getIsCorrect()));
+
+        return Map.of(
+                "questionIndex",  questionIndex,
+                "questionText",   gq.getQuestionText(),
+                "studentAnswer",  response.getStudentAnswer() != null ? response.getStudentAnswer() : "",
+                "correctAnswer",  gq.getCorrectAnswer(),
+                "isCorrect",      Boolean.TRUE.equals(response.getIsCorrect()),
+                "explanation",    explanation
+        );
+    }
+
+    // -----------------------------------------------------------------------
     // Private helpers
     // -----------------------------------------------------------------------
 
-    private Student resolveStudent(Long userId) {
-        return studentRepository.findByUserId(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
+    /**
+     * Verifies the authenticated caller has access to the attempt's student, then
+     * returns that student. Delegates to {@link StudentService#resolveStudent} so
+     * STUDENT, PARENT, and ADMIN roles are all handled in one place.
+     */
+    private Student verifyAndGetStudent(Authentication authentication, AdaptiveQuizAttempt attempt) {
+        Student resolved = studentService.resolveStudent(authentication, attempt.getStudent().getId());
+        if (!resolved.getId().equals(attempt.getStudent().getId())) {
+            throw new UnauthorizedException("هذا الاختبار لا يخصك");
+        }
+        return attempt.getStudent();
     }
 
     private Lesson resolveLesson(Long lessonId) {
@@ -589,6 +666,17 @@ public class AdaptiveQuizService {
             log.error("JSON serialisation failed: {}", e.getMessage());
             return "[]";
         }
+    }
+
+    private int getPointsByDifficulty(int difficulty) {
+        return switch (difficulty) {
+            case 1 -> 5;
+            case 2 -> 10;
+            case 3 -> 15;
+            case 4 -> 20;
+            case 5 -> 25;
+            default -> 5;
+        };
     }
 
     private String normalizeArabic(String text) {

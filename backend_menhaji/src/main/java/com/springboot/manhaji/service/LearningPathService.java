@@ -36,9 +36,9 @@ public class LearningPathService {
     private final GeminiService geminiService;
 
     @Transactional
-    public LearningPathResponse generatePath(Long userId) {
-        Student student = studentRepository.findByUserId(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
+    public LearningPathResponse generatePath(Long studentId) {
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student", studentId));
 
         String weakAreas = buildWeakAreas(student);
         String completedLessons = buildCompletedLessons(student);
@@ -57,11 +57,11 @@ public class LearningPathService {
         return toResponse(path);
     }
 
-    public LearningPathResponse getPath(Long userId) {
-        Student student = studentRepository.findByUserId(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
+    public LearningPathResponse getPath(Long studentId) {
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student", studentId));
         LearningPath path = learningPathRepository.findByStudentId(student.getId())
-                .orElseThrow(() -> new ResourceNotFoundException("LearningPath for student", userId));
+                .orElseThrow(() -> new ResourceNotFoundException("LearningPath for student", studentId));
         return toResponse(path);
     }
 

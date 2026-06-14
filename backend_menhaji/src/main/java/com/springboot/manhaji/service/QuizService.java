@@ -119,7 +119,7 @@ public class QuizService {
         Map<String, Object> aiResult = aiEvaluateIfShortAnswer(question, request);
         boolean isCorrect = evaluateAnswer(question, request, aiResult);
         String feedback = generateFeedback(question, request, isCorrect, aiResult);
-        int pointsEarned = isCorrect ? quizConfig.getPointsPerCorrect() : 0;
+        int pointsEarned = isCorrect ? getPointsByDifficulty(question.getDifficultyLevel()) : 0;
 
         StudentResponse response = new StudentResponse();
         response.setAttempt(attempt);
@@ -188,7 +188,7 @@ public class QuizService {
         String rating = pronunciationScoringService.rating(score);
         String feedback = pronunciationScoringService.feedback(score, expected);
         boolean isCorrect = pronunciationScoringService.isCorrect(score);
-        int pointsEarned = isCorrect ? quizConfig.getPointsPerCorrect() : 0;
+        int pointsEarned = isCorrect ? getPointsByDifficulty(question.getDifficultyLevel()) : 0;
 
         StudentResponse response = new StudentResponse();
         response.setAttempt(attempt);
@@ -234,7 +234,7 @@ public class QuizService {
         boolean isCorrect = Boolean.TRUE.equals(request.getIsCorrect());
         String feedback = request.getFeedback() != null ? request.getFeedback()
                 : (isCorrect ? "أحسنت الكتابة!" : "استمر في التدريب");
-        int pointsEarned = isCorrect ? quizConfig.getPointsPerCorrect() : 0;
+        int pointsEarned = isCorrect ? getPointsByDifficulty(question.getDifficultyLevel()) : 0;
 
         StudentResponse response = new StudentResponse();
         response.setAttempt(attempt);
@@ -282,7 +282,7 @@ public class QuizService {
                 ? "قراءة ممتازة! دقة " + accuracy + "%"
                 : "استمر في التدريب! دقة " + accuracy + "%";
 
-        int pointsEarned = isCorrect ? quizConfig.getPointsPerCorrect() : 0;
+        int pointsEarned = isCorrect ? getPointsByDifficulty(question.getDifficultyLevel()) : 0;
 
         StudentResponse response = new StudentResponse();
         response.setAttempt(attempt);
@@ -377,14 +377,21 @@ for (StudentResponse response : dedupedResponses) {
                 .orElseThrow(() -> new ResourceNotFoundException("Question", questionId));
 
         int maxLevel = quizConfig.getMaxHintLevel();
-        level = Math.max(1, Math.min(maxLevel, level));
+        int clampedLevel = Math.max(1, Math.min(maxLevel, level));
+
+        log.info("[HINT] QuizService.getHint — questionId={} requestedLevel={} clampedLevel={} maxLevel={}",
+                questionId, level, clampedLevel, maxLevel);
+
         String hint = geminiService.generateHint(
-                question.getQuestionText(), question.getCorrectAnswer(), level, "ar");
+                question.getQuestionText(), question.getCorrectAnswer(), clampedLevel, "ar");
+
+        log.info("[HINT] QuizService.getHint — questionId={} level={} hintText=\"{}\"",
+                questionId, clampedLevel, hint);
 
         return Map.of(
                 "hint", hint,
-                "hintLevel", level,
-                "remainingHints", maxLevel - level
+                "hintLevel", clampedLevel,
+                "remainingHints", maxLevel - clampedLevel
         );
     }
 
@@ -562,6 +569,10 @@ for (StudentResponse response : dedupedResponses) {
         List<StudentResponse> responses = responseRepository.findByAttemptId(attempt.getId());
         int correctAnswers = (int) responses.stream()
                 .filter(r -> Boolean.TRUE.equals(r.getIsCorrect())).count();
+        int pointsEarned = responses.stream()
+                .filter(r -> Boolean.TRUE.equals(r.getIsCorrect()))
+                .mapToInt(r -> getPointsByDifficulty(r.getQuestion().getDifficultyLevel()))
+                .sum();
 
         return AttemptResponse.builder()
                 .attemptId(attempt.getId())
@@ -570,7 +581,7 @@ for (StudentResponse response : dedupedResponses) {
                 .score(attempt.getScore())
                 .totalQuestions(quiz.getQuestions().size())
                 .correctAnswers(correctAnswers)
-                .pointsEarned(correctAnswers * quizConfig.getPointsPerCorrect())
+                .pointsEarned(pointsEarned)
                 .submittedAt(attempt.getSubmittedAt())
                 .build();
     }

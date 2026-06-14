@@ -65,6 +65,7 @@ public class AuthService {
         // Step 2: create the role-specific profile linked via user_id
         String fullName = request.getFullName();
         Integer gradeLevel = null;
+        Long studentId = null;
 
         switch (request.getRole()) {
             case STUDENT -> {
@@ -75,6 +76,7 @@ public class AuthService {
                 student.setAvatarId(request.getAvatarId());
                 gradeLevel = request.getGradeLevel();
                 Student savedStudent = studentRepository.save(student);
+                studentId = savedStudent.getId();
 
                 if (request.getParentId() != null) {
                     Parent parent = parentRepository.findByUserId(request.getParentId())
@@ -110,12 +112,7 @@ public class AuthService {
                     messages.get("error.auth.invalidRole", request.getRole().name()));
         }
 
-       return buildAuthResponse(
-        savedUser,
-        fullName,
-        gradeLevel,
-        request.getAvatarId()
-);
+        return buildAuthResponse(savedUser, fullName, gradeLevel, request.getAvatarId(), studentId);
     }
 
     @Transactional
@@ -181,6 +178,7 @@ public class AuthService {
         String fullName = null;
         Integer gradeLevel = null;
         String avatarId = null;
+        Long studentId = null;
 
         switch (user.getRole()) {
             case STUDENT -> {
@@ -188,7 +186,8 @@ public class AuthService {
                 if (s != null) {
                     fullName = s.getStudentName();
                     gradeLevel = s.getGradeLevel();
-                     avatarId = s.getAvatarId();
+                    avatarId = s.getAvatarId();
+                    studentId = s.getId();
                 }
             }
             case TEACHER ->
@@ -203,27 +202,29 @@ public class AuthService {
             default -> { /* SCHOOL or other roles have no profile entity */ }
         }
 
-        return buildAuthResponse(user, fullName, gradeLevel, avatarId);
+        return buildAuthResponse(user, fullName, gradeLevel, avatarId, studentId);
     }
 
     // ── helpers ──────────────────────────────────────────────────────────────
 
-   private AuthResponse buildAuthResponse(
-        User user,
-        String fullName,
-        Integer gradeLevel,
-        String avatarId) {
+    private AuthResponse buildAuthResponse(
+            User user,
+            String fullName,
+            Integer gradeLevel,
+            String avatarId,
+            Long studentId) {
 
-    return AuthResponse.builder()
-            .accessToken(jwtService.generateAccessToken(user))
-            .refreshToken(jwtService.generateRefreshToken(user))
-            .userId(user.getId())
-            .fullName(fullName)
-            .email(user.getEmail())
-            .phone(user.getPhone())
-            .role(user.getRole())
-            .gradeLevel(gradeLevel)
-            .avatarId(avatarId)
-            .build();
-}
+        return AuthResponse.builder()
+                .accessToken(jwtService.generateAccessToken(user))
+                .refreshToken(jwtService.generateRefreshToken(user))
+                .userId(user.getId())
+                .studentId(studentId)
+                .fullName(fullName)
+                .email(user.getEmail())
+                .phone(user.getPhone())
+                .role(user.getRole())
+                .gradeLevel(gradeLevel)
+                .avatarId(avatarId)
+                .build();
+    }
 }

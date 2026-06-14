@@ -25,10 +25,6 @@ public class ReadingAssessmentResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /**
-     * Plain FK column — no JPA FK constraint to students table.
-     * Matches TracingAnswer convention so history queries avoid joining students.
-     */
     @Column(name = "student_id", nullable = false)
     private Long studentId;
 
@@ -81,8 +77,6 @@ public class ReadingAssessmentResult {
     private Integer missingWordCount;
 
     // ─── Word lists (JSON arrays) ───────────────────────────────────────────────
-    //  Stored as raw JSON strings — same convention as TracingAnswer.drawingPointsJson
-    //  and Lesson.imageUrls in this project.
 
     /** JSON array of words the student read correctly. Example: ["الكلب","يلعب","في"] */
     @Column(columnDefinition = "LONGTEXT")

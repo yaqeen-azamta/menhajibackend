@@ -59,40 +59,51 @@ public class ParentService {
                 .build();
     }
 
-    public StudentDetailResponse getChildDetail(Long userId, Long childUserId) {
-        Parent parent = parentRepository.findByUserId(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Parent", userId));
+   public StudentDetailResponse getChildDetail(Long userId, Long childId) {
+    Parent parent = parentRepository.findByUserId(userId)
+            .orElseThrow(() -> new ResourceNotFoundException("Parent", userId));
 
-        Student child = studentRepository.findByUserId(childUserId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", childUserId));
+    Student child = studentRepository.findById(childId)
+            .orElseThrow(() -> new ResourceNotFoundException("Student", childId));
 
-        if (!parentStudentRepository.existsByParentIdAndStudentId(parent.getId(), child.getId())) {
-            throw new UnauthorizedException(messages.get("error.parent.childNotLinked"));
-        }
-
-        List<Progress> progressRecords = progressRepository.findByStudentId(child.getId());
-        List<Attempt> attempts = attemptRepository.findByStudentIdOrderByCreatedAtDesc(child.getId());
-
-        List<SubjectMasterySummary> subjectBreakdown = metrics.buildSubjectBreakdown(child, progressRecords);
-
-        return StudentDetailResponse.builder()
-                .studentId(child.getUser().getId())
-                .fullName(child.getStudentName())
-                .email(child.getUser().getEmail())
-                .phone(child.getUser().getPhone())
-                .gradeLevel(child.getGradeLevel())
-                .totalPoints(child.getTotalPoints())
-                .currentStreak(child.getCurrentStreak())
-                .lastLoginAt(child.getUser().getLastLoginAt())
-                .createdAt(child.getUser().getCreatedAt())
-                .lessonsCompleted(metrics.countCompleted(progressRecords))
-                .lessonsInProgress(metrics.countInProgress(progressRecords))
-                .overallMastery(ProgressMetrics.round2(metrics.averageMastery(progressRecords)))
-                .totalAttempts(attempts.size())
-                .averageScore(ProgressMetrics.round2(metrics.averageGradedScore(attempts)))
-                .subjectBreakdown(subjectBreakdown)
-                .build();
+    if (!parentStudentRepository.existsByParentIdAndStudentId(
+            parent.getId(),
+            child.getId())) {
+        throw new UnauthorizedException(
+                messages.get("error.parent.childNotLinked"));
     }
+
+    List<Progress> progressRecords =
+            progressRepository.findByStudentId(child.getId());
+
+    List<Attempt> attempts =
+            attemptRepository.findByStudentIdOrderByCreatedAtDesc(child.getId());
+
+    List<SubjectMasterySummary> subjectBreakdown =
+            metrics.buildSubjectBreakdown(child, progressRecords);
+
+    return StudentDetailResponse.builder()
+            .studentId(child.getId())
+            .fullName(child.getStudentName())
+            .email(child.getUser().getEmail())
+            .phone(child.getUser().getPhone())
+            .gradeLevel(child.getGradeLevel())
+            .totalPoints(child.getTotalPoints())
+            .currentStreak(child.getCurrentStreak())
+            .lastLoginAt(child.getUser().getLastLoginAt())
+            .createdAt(child.getUser().getCreatedAt())
+            .lessonsCompleted(metrics.countCompleted(progressRecords))
+            .lessonsInProgress(metrics.countInProgress(progressRecords))
+            .overallMastery(
+                    ProgressMetrics.round2(
+                            metrics.averageMastery(progressRecords)))
+            .totalAttempts(attempts.size())
+            .averageScore(
+                    ProgressMetrics.round2(
+                            metrics.averageGradedScore(attempts)))
+            .subjectBreakdown(subjectBreakdown)
+            .build();
+}
 
     private ChildSummaryResponse buildChildSummary(Student student) {
         List<Progress> progressRecords = progressRepository.findByStudentId(student.getId());
@@ -102,7 +113,7 @@ public class ParentService {
                 .size();
 
         return ChildSummaryResponse.builder()
-                .studentId(student.getUser().getId())
+                .studentId(student.getId())
                 .fullName(student.getStudentName())
                 .avatarId(student.getAvatarId())
                 .gradeLevel(student.getGradeLevel())

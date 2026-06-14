@@ -22,34 +22,35 @@ public class AdaptiveQuizController {
 
     /**
      * Generate (or resume) an adaptive quiz for the given lesson.
-     * Returns questions WITHOUT correct answers.
+     * STUDENT accounts: studentId param is ignored.
+     * PARENT accounts: pass ?studentId=<students.id> for the linked child.
+     * ADMIN accounts: pass ?studentId=<students.id> to act on any student.
      */
     @GetMapping("/{lessonId}")
     public ResponseEntity<ApiResponse<AdaptiveQuizPayload>> generateQuiz(
             @PathVariable Long lessonId,
+            @RequestParam(required = false) Long studentId,
             Authentication authentication) {
-        Long userId = (Long) authentication.getPrincipal();
-        AdaptiveQuizPayload payload = adaptiveQuizService.generateAdaptiveQuiz(lessonId, userId);
+        AdaptiveQuizPayload payload = adaptiveQuizService.generateAdaptiveQuiz(lessonId, authentication, studentId);
         return ResponseEntity.ok(ApiResponse.success(payload));
     }
 
     /**
      * Submit answers for a completed adaptive quiz session.
-     * Returns per-question feedback, score, and updated skill profiles.
+     * PARENT/ADMIN: ownership is verified automatically via the attempt's student.
      */
     @PostMapping("/{attemptId}/submit")
     public ResponseEntity<ApiResponse<AdaptiveQuizResult>> submitQuiz(
             @PathVariable Long attemptId,
             @Valid @RequestBody AdaptiveSubmitRequest request,
             Authentication authentication) {
-        Long userId = (Long) authentication.getPrincipal();
-        AdaptiveQuizResult result = adaptiveQuizService.submitAdaptiveQuiz(attemptId, request, userId);
+        AdaptiveQuizResult result = adaptiveQuizService.submitAdaptiveQuiz(attemptId, request, authentication);
         return ResponseEntity.ok(ApiResponse.success(result));
     }
 
     /**
      * Request a hint for one question in an active adaptive quiz.
-     * Level 1 = vague, level 3 = near-answer.
+     * Level 1 = vague directional clue, level 3 = near-answer.
      */
     @GetMapping("/{attemptId}/question/{questionIndex}/hint")
     public ResponseEntity<ApiResponse<Map<String, Object>>> getHint(
@@ -57,9 +58,21 @@ public class AdaptiveQuizController {
             @PathVariable int questionIndex,
             @RequestParam(defaultValue = "1") int level,
             Authentication authentication) {
-        Long userId = (Long) authentication.getPrincipal();
         Map<String, Object> hint = adaptiveQuizService.getHintForAdaptiveQuestion(
-                attemptId, questionIndex, level, userId);
+                attemptId, questionIndex, level, authentication);
         return ResponseEntity.ok(ApiResponse.success(hint));
+    }
+
+    /**
+     * Fetch an AI-generated explanation for one question after the quiz is submitted.
+     */
+    @GetMapping("/{attemptId}/question/{questionIndex}/explanation")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getExplanation(
+            @PathVariable Long attemptId,
+            @PathVariable int questionIndex,
+            Authentication authentication) {
+        Map<String, Object> explanation = adaptiveQuizService.getAnswerExplanation(
+                attemptId, questionIndex, authentication);
+        return ResponseEntity.ok(ApiResponse.success(explanation));
     }
 }

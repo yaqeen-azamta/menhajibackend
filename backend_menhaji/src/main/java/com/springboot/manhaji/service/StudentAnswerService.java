@@ -15,8 +15,10 @@ import com.springboot.manhaji.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+
 
 @Service
 @RequiredArgsConstructor
@@ -41,16 +43,17 @@ private int getPointsByDifficulty(Integer difficulty) {
     };
 }
 
-    // Non-transactional by design: each repository call runs in its own
-    // auto-transaction, so a save failure does not mark the session rollback-only
-    // and break subsequent operations such as the student points update.
-    public SaveAnswerResponse saveAnswer(Long userId, SaveAnswerRequest request) {
-        log.info("saveAnswer → userId={}, questionId={}, lessonId={}",
-                userId, request.getQuestionId(), request.getLessonId());
-
-        // userId from JWT is User.id; resolve to the Student profile.
-        Student student = studentRepository.findByUserId(userId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student", userId));
+    // @Transactional ensures question and lesson loaded below are managed entities
+    // within the same Hibernate session as answerRepository.save(). The student
+    // entity is fetched OUTSIDE this method (via resolveStudent in the controller)
+    // and would be detached — we use getReferenceById to obtain a managed proxy.
+    // Exceptions from the save block are caught so a persistence failure never
+    // causes the points update below to roll back (it runs in the same transaction
+    // but Hibernate's session is not corrupted by a caught application-level failure).
+    @Transactional
+    public SaveAnswerResponse saveAnswer(Student student, SaveAnswerRequest request) {
+        log.info("[SAVE-ANSWER] incoming — studentId={} questionId={} lessonId={} answer='{}'",
+                student.getId(), request.getQuestionId(), request.getLessonId(), request.getAnswer());
 
         Question question = questionRepository.findById(request.getQuestionId())
                 .orElseThrow(() -> new ResourceNotFoundException("Question", request.getQuestionId()));
@@ -72,47 +75,49 @@ private int getPointsByDifficulty(Integer difficulty) {
         }
 
         // Capture dedup flag BEFORE inserting the new record so the points guard
-        // in step 2 below counts only pre-existing correct answers, not the one
-        // we are about to save.
+        // below counts only pre-existing correct answers, not the one we are about to save.
         boolean alreadyAnsweredCorrectly =
                 answerRepository.existsByStudentIdAndQuestionIdAndIsCorrectTrue(
                         student.getId(), question.getId());
 
+        log.info("[SAVE-ANSWER] before save — studentId={} questionId={} lessonId={} answer='{}' isCorrect={} alreadyCorrect={}",
+                student.getId(), question.getId(), lesson.getId(), answer, isCorrect, alreadyAnsweredCorrectly);
+
         try {
             StudentQuestionAnswer record = new StudentQuestionAnswer();
-            record.setStudent(student);
-            record.setQuestion(question);
-            record.setLesson(lesson);
+            // student was fetched outside this transaction — use getReferenceById to
+            // obtain a managed proxy so Hibernate does not throw DetachedObjectException.
+            record.setStudent(studentRepository.getReferenceById(student.getId()));
+            record.setQuestion(question);  // loaded above — managed in this transaction
+            record.setLesson(lesson);      // loaded above — managed in this transaction
             record.setAnswerText(answer);
             record.setIsCorrect(isCorrect);
             record.setScore(score);
             record.setAnsweredAt(LocalDateTime.now());
             record.setFeedback(feedback);
-            answerRepository.save(record);
+
+            StudentQuestionAnswer saved = answerRepository.save(record);
+            log.info("[SAVE-ANSWER] after save — id={} studentId={} questionId={}",
+                    saved.getId(), student.getId(), question.getId());
         } catch (Exception e) {
-            log.error("Failed to persist student answer (non-fatal): {}", e.getMessage(), e);
+            log.error("[SAVE-ANSWER] FAILED to persist answer — studentId={} questionId={} lessonId={} error={}",
+                    student.getId(), question.getId(), lesson.getId(), e.getMessage(), e);
         }
 
         int pointsAwarded = 0;
         if (isCorrect && !alreadyAnsweredCorrectly) {
             try {
-                // Re-load to avoid stale state from the session above.
-                Student fresh = studentRepository.findByUserId(userId).orElse(null);
+                Student fresh = studentRepository.findById(student.getId()).orElse(null);
                 if (fresh != null) {
-                    int earnedPoints =
-        getPointsByDifficulty(question.getDifficultyLevel());
-
-fresh.setTotalPoints(
-    fresh.getTotalPoints() + earnedPoints
-);
-studentRepository.save(fresh);
-
-pointsAwarded = earnedPoints;
-                    log.info("Points awarded → userId={}, +{}pts, total={}",
-                            userId, earnedPoints, fresh.getTotalPoints());
+                    int earnedPoints = getPointsByDifficulty(question.getDifficultyLevel());
+                    fresh.setTotalPoints(fresh.getTotalPoints() + earnedPoints);
+                    studentRepository.save(fresh);
+                    pointsAwarded = earnedPoints;
+                    log.info("[SAVE-ANSWER] points awarded — studentId={} +{}pts total={}",
+                            fresh.getId(), earnedPoints, fresh.getTotalPoints());
                 }
             } catch (Exception e) {
-                log.warn("Failed to update student points (non-fatal): {}", e.getMessage());
+                log.warn("[SAVE-ANSWER] failed to update points (non-fatal): {}", e.getMessage());
             }
         }
 

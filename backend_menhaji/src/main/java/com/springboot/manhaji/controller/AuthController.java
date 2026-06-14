@@ -58,7 +58,6 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.error("Not authenticated"));
         }
         Long userId = (Long) authentication.getPrincipal();
-        // getCurrentUser returns the concrete subtype (Student, Teacher …) via JOINED inheritance
         AuthResponse response = authService.buildAuthResponseForUser(userId);
         return ResponseEntity.ok(ApiResponse.success(response));
     }

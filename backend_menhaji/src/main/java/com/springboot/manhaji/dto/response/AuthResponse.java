@@ -13,7 +13,8 @@ import lombok.NoArgsConstructor;
 public class AuthResponse {
     private String accessToken;
     private String refreshToken;
-    private Long userId;
+    private Long userId;      // users.id — matches the JWT "userId" claim
+    private Long studentId;   // students.id — only set when role == STUDENT; null otherwise
     private String fullName;
     private String email;
     private String phone;

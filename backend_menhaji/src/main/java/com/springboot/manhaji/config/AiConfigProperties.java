@@ -21,18 +21,44 @@ public class AiConfigProperties {
 
     @PostConstruct
     public void logConfigurationStatus() {
-        if (gemini.isConfigured()) {
-            String hint = gemini.getApiKey().substring(0, Math.min(6, gemini.getApiKey().length()));
-            log.info("Gemini AI  : ENABLED  (key prefix: {}***,  model: {})", hint, gemini.getModel());
+        String rawKey = gemini.getApiKey();
+        boolean keyPresent = rawKey != null && !rawKey.isBlank();
+        boolean isPlaceholder = keyPresent && (rawKey.equals("not-set") || rawKey.startsWith("REPLACE_"));
+        boolean configured = gemini.isConfigured();
+
+        log.info("════════════════════════════════════════════════");
+        log.info("  AI CONFIGURATION REPORT");
+        log.info("════════════════════════════════════════════════");
+
+        if (configured) {
+            String masked = rawKey.substring(0, Math.min(6, rawKey.length())) + "***";
+            log.info("  Gemini AI   : ENABLED");
+            log.info("  API key     : detected (prefix: {})", masked);
+            log.info("  Model       : {}", gemini.getModel());
+            if (!rawKey.startsWith("AIzaSy")) {
+                log.warn("  ⚠ Key format warning: Gemini AI Studio keys start with 'AIzaSy'.");
+                log.warn("    Current prefix: '{}'. If API calls fail with 401/403, get a", masked);
+                log.warn("    new key from https://aistudio.google.com/apikey");
+            }
+        } else if (isPlaceholder) {
+            log.error("  Gemini AI   : DISABLED — API key is still the placeholder value");
+            log.error("  API key     : \"{}\" (this is NOT a real key)", rawKey);
+            log.error("  HOW TO FIX: set app.ai.gemini.api-key in application.yaml");
+            log.error("  Get a free key at: https://aistudio.google.com/apikey");
         } else {
-            log.warn("Gemini AI  : DISABLED — set GEMINI_API_KEY environment variable to enable adaptive quizzes and hints");
+            log.warn("  Gemini AI   : DISABLED — API key not set or not recognised");
+            log.warn("  API key raw : \"{}\"", rawKey);
+            log.warn("  HOW TO FIX: set app.ai.gemini.api-key in application.yaml");
+            log.warn("  Get a free key at: https://aistudio.google.com/apikey");
+            log.warn("  Impact: Adaptive quizzes use DB fallback. Hints use static text.");
         }
 
         if (googleTts.isConfigured()) {
-            log.info("Google TTS : ENABLED");
+            log.info("  Google TTS  : ENABLED");
         } else {
-            log.info("Google TTS : using Edge TTS fallback (no GOOGLE_TTS_API_KEY)");
+            log.info("  Google TTS  : using Edge TTS fallback (no GOOGLE_TTS_API_KEY set)");
         }
+        log.info("════════════════════════════════════════════════");
     }
     /**
      * Which TTS provider {@link com.springboot.manhaji.service.ai.TtsService}
@@ -49,7 +75,11 @@ public class AiConfigProperties {
         private String model = "gemini-2.5-flash";
 
         public boolean isConfigured() {
-            return apiKey != null && !apiKey.isBlank() && !"not-set".equals(apiKey);
+            return apiKey != null
+                && !apiKey.isBlank()
+                && !"not-set".equals(apiKey)
+                && !apiKey.startsWith("REPLACE_")       // catches REPLACE_WITH_YOUR_GEMINI_API_KEY
+                && !apiKey.equals("your_actual_key_here"); // guard against literal copy-paste from docs
         }
     }
 

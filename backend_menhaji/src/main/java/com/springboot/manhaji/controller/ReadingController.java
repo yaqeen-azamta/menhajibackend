@@ -3,6 +3,7 @@ package com.springboot.manhaji.controller;
 import com.springboot.manhaji.dto.response.ApiResponse;
 import com.springboot.manhaji.dto.response.ReadingAssessmentResponse;
 import com.springboot.manhaji.dto.response.ReadingHistoryEntry;
+import com.springboot.manhaji.service.StudentService;
 import com.springboot.manhaji.service.reading.ReadingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,41 +25,22 @@ import java.util.List;
 public class ReadingController {
 
     private final ReadingService readingService;
-
-    // ─────────────────────────────────────────────────────────────────────────────
-    //  POST /api/reading/assess
-    // ─────────────────────────────────────────────────────────────────────────────
+    private final StudentService studentService;
 
     /**
-     * A student submits a recording of themselves reading a lesson paragraph.
-     *
-     * <p>The backend loads {@code lesson.content} from the database (source of truth),
-     * transcribes the audio via Gemini, compares word-by-word with Arabic normalization,
+     * A student (or parent on behalf of a child) submits a recording of themselves reading a
+     * lesson paragraph. The backend loads {@code lesson.content} from the database (source of
+     * truth), transcribes the audio via Gemini, compares word-by-word with Arabic normalization,
      * persists the attempt, and returns a structured accuracy report.
      *
-     * <p>Form fields:
-     * <ul>
-     *   <li>{@code audio}    – multipart audio file (webm / m4a / wav / mp3 / ogg)</li>
-     *   <li>{@code lessonId} – ID of the lesson whose content is the ground truth</li>
-     *   <li>{@code language} – "ar" (default) or "en"</li>
-     * </ul>
-     *
-     * <p>Error responses:
-     * <ul>
-     *   <li>400 – missing or empty audio file</li>
-     *   <li>404 – lesson not found (propagated from {@link com.springboot.manhaji.exception.ResourceNotFoundException})</li>
-     *   <li>500 – unexpected transcription or persistence failure</li>
-     * </ul>
-     */
-    /**
      * Form fields:
      * <ul>
      *   <li>{@code audio}      – multipart audio file (webm / m4a / wav / mp3 / ogg)</li>
      *   <li>{@code lessonId}   – ID of the lesson (always required for history persistence)</li>
-     *   <li>{@code questionId} – optional; when present, {@code question.correctAnswer} is used
-     *                            as the source text instead of {@code lesson.content}.
-     *                            Must be provided for READING question types in the quiz flow.</li>
+     *   <li>{@code questionId} – optional; when present {@code question.correctAnswer} is used
+     *                            as the source text instead of {@code lesson.content}.</li>
      *   <li>{@code language}   – "ar" (default) or "en"</li>
+     *   <li>{@code studentId}  – PARENT/ADMIN accounts: the child's {@code students.id}</li>
      * </ul>
      */
     @PostMapping(value = "/assess", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -67,66 +49,68 @@ public class ReadingController {
             @RequestParam Long lessonId,
             @RequestParam(required = false) Long questionId,
             @RequestParam(defaultValue = "ar") String language,
+            @RequestParam(required = false) Long studentId,
             Authentication authentication) {
 
-        System.out.println("[READING] READING ASSESS CALLED — lessonId=" + lessonId
-                + " questionId=" + questionId + " language=" + language);
-
-        Long studentId = (Long) authentication.getPrincipal();
-
         if (audio == null || audio.isEmpty()) {
-            return ResponseEntity.badRequest()
-                    .body(ApiResponse.error("الملف الصوتي مطلوب"));
+            return ResponseEntity.badRequest().body(ApiResponse.error("الملف الصوتي مطلوب"));
         }
 
-        log.info("[READING] assess ENTRY: studentId={} lessonId={} questionId={} language={} contentType={} size={}B",
-                studentId, lessonId, questionId, language,
-                audio.getContentType(), audio.getSize());
+        Long userId = (Long) authentication.getPrincipal();
+        String role = authentication.getAuthorities().stream()
+                .findFirst().map(a -> a.getAuthority()).orElse("UNKNOWN");
+
+        log.info("[READING] assess incoming — role={} userId/parentId={} requestedStudentId={} lessonId={} questionId={} language={} size={}B",
+                role, userId, studentId, lessonId, questionId, language, audio.getSize());
+
+        Long targetUserId = studentService.resolveStudent(authentication, studentId).getUser().getId();
+
+        log.info("[READING] assess resolved — role={} userId={} requestedStudentId={} resolvedStudentUserId={}",
+                role, userId, studentId, targetUserId);
 
         ReadingAssessmentResponse response =
-                readingService.assess(studentId, lessonId, questionId, audio, language);
+                readingService.assess(targetUserId, lessonId, questionId, audio, language);
 
         return ResponseEntity.ok(ApiResponse.success(response));
     }
 
-    // ─────────────────────────────────────────────────────────────────────────────
-    //  GET /api/reading/history
-    // ─────────────────────────────────────────────────────────────────────────────
-
     /**
-     * Returns the authenticated student's reading attempt history, newest first.
+     * Returns reading attempt history, newest first.
      *
-     * <p>Query params: {@code page} (default 0), {@code size} (default 10).
-     * Response does not include word lists — only summary fields per attempt.
+     * STUDENT accounts: no extra param needed.
+     * PARENT/ADMIN accounts: pass ?studentId=<students.id> of the target student.
+     *
+     * Query params: {@code page} (default 0), {@code size} (default 10).
      */
     @GetMapping("/history")
     public ResponseEntity<ApiResponse<Page<ReadingHistoryEntry>>> getHistory(
             @RequestParam(defaultValue = "0")  int page,
             @RequestParam(defaultValue = "10") int size,
+            @RequestParam(required = false) Long studentId,
             Authentication authentication) {
 
-        Long studentId = (Long) authentication.getPrincipal();
+        Long targetUserId = studentService.resolveStudent(authentication, studentId).getUser().getId();
+
         Page<ReadingHistoryEntry> history = readingService.getHistory(
-                studentId, PageRequest.of(page, size, Sort.by("createdAt").descending()));
+                targetUserId, PageRequest.of(page, size, Sort.by("createdAt").descending()));
         return ResponseEntity.ok(ApiResponse.success(history));
     }
 
-    // ─────────────────────────────────────────────────────────────────────────────
-    //  GET /api/reading/history/lesson/{lessonId}
-    // ─────────────────────────────────────────────────────────────────────────────
-
     /**
-     * All attempts by the authenticated student on one specific lesson, newest first.
-     * Useful for showing reading progress over multiple tries on the same lesson.
+     * All reading attempts for one specific lesson, newest first.
+     *
+     * STUDENT accounts: no extra param needed.
+     * PARENT/ADMIN accounts: pass ?studentId=<students.id> of the target student.
      */
     @GetMapping("/history/lesson/{lessonId}")
     public ResponseEntity<ApiResponse<List<ReadingHistoryEntry>>> getHistoryForLesson(
             @PathVariable Long lessonId,
+            @RequestParam(required = false) Long studentId,
             Authentication authentication) {
 
-        Long studentId = (Long) authentication.getPrincipal();
-        List<ReadingHistoryEntry> history =
-                readingService.getHistoryForLesson(studentId, lessonId);
-        return ResponseEntity.ok(ApiResponse.success(history));
+        Long targetUserId = studentService.resolveStudent(authentication, studentId).getUser().getId();
+
+        return ResponseEntity.ok(ApiResponse.success(
+                readingService.getHistoryForLesson(targetUserId, lessonId)));
     }
 }

@@ -39,18 +39,17 @@ public class SecurityConfig {
 
         .requestMatchers("/uploads/audio/**").authenticated()
 
-        // ✅ ADAPTIVE QUIZ — authenticated students only
-        .requestMatchers("/api/quiz/adaptive/**").authenticated()
+        // Parents can take adaptive quizzes on behalf of a linked child.
+        // Ownership of the selected child is enforced in AdaptiveQuizService.
+        .requestMatchers("/api/quiz/adaptive/**").hasAnyRole("STUDENT", "PARENT", "ADMIN")
+
+        .requestMatchers("/api/reports/**").hasAnyRole("STUDENT", "PARENT", "ADMIN")
 
         // ✅ QUESTIONS
         .requestMatchers("/api/questions/**").permitAll()
 
         // Student answers require auth — the endpoint reads the student id from the JWT.
         .requestMatchers("/api/student-answers/**").authenticated()
-
-        // ✅ TRACING – GET endpoints are public; POST /submit requires auth
-        .requestMatchers(org.springframework.http.HttpMethod.GET,  "/api/tracing/**").permitAll()
-        .requestMatchers(org.springframework.http.HttpMethod.POST, "/api/tracing/**").authenticated()
 
         .requestMatchers("/", "/index.html", "/favicon.ico").permitAll()
 
@@ -60,16 +59,13 @@ public class SecurityConfig {
 
         .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
-        .requestMatchers("/api/teacher/**")
-            .hasAnyRole("TEACHER", "ADMIN")
+        .requestMatchers("/api/teacher/**").hasAnyRole("TEACHER", "ADMIN")
 
-        .requestMatchers("/api/parent/**")
-    .hasAnyRole("PARENT", "ADMIN")
+        .requestMatchers("/api/parent/**").hasAnyRole("PARENT", "ADMIN")
+.requestMatchers("/api/student/**")
+.hasAnyRole("STUDENT", "PARENT", "ADMIN")
 
-.requestMatchers("/api/progress/**")
-    .hasAnyRole("PARENT", "STUDENT", "ADMIN")
-
-
+        .requestMatchers("/api/progress/**").hasAnyRole("PARENT", "STUDENT", "ADMIN")
 
         .anyRequest().authenticated()
 )
